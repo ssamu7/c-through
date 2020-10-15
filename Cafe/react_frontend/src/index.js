@@ -10,16 +10,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// import React from "react";
-// import Map from "./pages/KakaoMap";
-
-// function KakaoMap() {
-//   return (
-//     <div className="index">
-//       <KakaoMap />
-//     </div>
-//   );
-// }
-
-// export default KakaoMap;
