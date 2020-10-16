@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Map from "./component/map/Map";
+import App from './App';
 
 ReactDOM.render(
   //잠재 적인 문제 체크<StrictMode>
   <React.StrictMode>
-    <Map />
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
