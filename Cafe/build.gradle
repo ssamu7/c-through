@@ -63,6 +63,17 @@ test {
 	useJUnitPlatform()
 }
 
+test {
+	systemProperty("java.library.path",
+			file("${buildDir}/libs/hello/shared").absolutePath)
+	systemProperty("java.library.path",
+			file("${buildDir}/libs/uartspring/shared").absolutePath)
+	systemProperty("java.library.path",
+			file("${buildDir}/libs/lidarspring/shared").absolutePath)
+	systemProperty("java.library.path",
+			file("${buildDir}/libs/arrayreturntest/shared").absolutePath)
+}
+
 model {
 	platforms {
 		x64 {
@@ -85,5 +96,63 @@ model {
 				}
 			}
 		}
+		uartspring(NativeLibrarySpec) {
+			binaries.all {
+				if (targetPlatform.operatingSystem.macOsX) {
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/darwin"
+					cCompiler.args '-mmacosx-version-min=10.4'
+					linker.args '-mmacosx-version-min=10.'
+				} else if (targetPlatform.operatingSystem.linux) {
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/linux"
+					cCompiler.args '-D_FILE_OFFSET_BITS=64 -lpthread'
+				}
+			}
+		}
+		lidarspring(NativeLibrarySpec) {
+			binaries.all {
+				if (targetPlatform.operatingSystem.macOsX) {
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/darwin"
+					cCompiler.args '-mmacosx-version-min=10.4'
+					linker.args '-mmacosx-version-min=10.'
+				} else if (targetPlatform.operatingSystem.linux) {
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/linux"
+					cCompiler.args '-D_FILE_OFFSET_BITS=64 -lpthread'
+				}
+			}
+		}
+		arrayreturntest(NativeLibrarySpec) {
+			binaries.all {
+				if (targetPlatform.operatingSystem.macOsX) {
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/darwin"
+					cCompiler.args '-mmacosx-version-min=10.4'
+					linker.args '-mmacosx-version-min=10.'
+				} else if (targetPlatform.operatingSystem.linux) {
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+					cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/linux"
+					cCompiler.args '-D_FILE_OFFSET_BITS=64 -lpthread -lm'
+				}
+			}
+		}
+		cpptest(NativeLibrarySpec) {
+			binaries.all {
+				if (targetPlatform.operatingSystem.macOsX) {
+					cppCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+					cppCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/darwin"
+					cppCompiler.args '-mmacosx-version-min=10.4'
+					linker.args '-mmacosx-version-min=10.'
+				} else if (targetPlatform.operatingSystem.linux) {
+					cppCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+					cppCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/linux"
+					cppCompiler.args '-D_FILE_OFFSET_BITS=64 -lpthread -lm'
+				}
+			}
+		}
 	}
 }
+
+test.dependsOn 'helloSharedLibrary'
