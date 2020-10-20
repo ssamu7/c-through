@@ -1,7 +1,7 @@
 <template>
   <aside class="vps-sidebar" :class="{'vps-sidebar-closed':!isOpen}">
     <div class="vps-logo">
-      <h3>VUE PRO SIDE</h3>
+      <h3>C-Through</h3>
     </div>
     <div class="vps-sidebar-user">
       <div class="vps-sidebar-user--details">
@@ -14,15 +14,14 @@
         </div>
         <div class="vps-sidebar-user-role">Administrator</div>
         <!-- bind the CSS variable to the user status depending on vuex store state or any other property
-              like '--status-color':user.isOnline?'#06ef61':'#fb0508'
+              like '--status-color':user.isOnline?'#06EF61':'#FB0508'
         -->
         <div
-          class="vps-sidebar-user-status"
-          :style="{'--status-color':true?'#06ef61':'#fb0508'}"
+            class="vps-sidebar-user-status"
+            :style="{'--status-color':true?'#06EF61':'#FB0508'}"
         >Online</div>
       </div>
     </div>
-
     <div class="vps-sidebar-search">
       <slot name="search"></slot>
     </div>
@@ -31,41 +30,41 @@
         <h4>General</h4>
       </li>
       <li
-        v-for="(item,index) in items"
-        :key="item.label"
-        class="vps-sidebar-menu-item"
-        @click="expand(index)"
+          v-for="(item,index) in items"
+          :key="item.label"
+          class="vps-sidebar-menu-item"
+          @click="expand(index)"
       >
         <div
-          class="vps-sidebar-menu-item-content"
-          :class="{'vps-sidebar-menu-item-content-expanded':expandedIndex===index}"
+            class="vps-sidebar-menu-item-content"
+            :class="{'vps-sidebar-menu-item-content-expanded':expandedIndex===index}"
         >
           <icon
-            class="vps-sidebar-menu-item-content-icon"
-            :name="item.icon?item.icon:'Addon'"
-            height="16px"
-            width="16px"
+              class="vps-sidebar-menu-item-content-icon"
+              :name="item.icon?item.icon:'Addon'"
+              height="16px"
+              width="16px"
           />
-          <div class="vps-sidebar-menu-item-content-label">
-
-          {{item.label}}
+          <div class="vps-sidebar-menu-item-content-label" >
+            <router-link to="/Menu">
+              {{item.label}}
+            </router-link>
           </div>
           <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
             <badge :color="item.details.color" :text="item.details.text"/>
           </div>
           <icon
-            name="ArrowRight"
-            class="vps-sidebar-arrow"
-            height="12px"
-            width="12px"
-            :class="{'vps-sidebar-rotate-arrow':expandedIndex===index}"
+              name="ArrowRight"
+              class="vps-sidebar-arrow"
+              height="12px"
+              width="12px"
+              :class="{'vps-sidebar-rotate-arrow':expandedIndex===index}"
           />
         </div>
         <ul class="vps-sidebar-sub-menu expand" v-expand="index===expandedIndex">
           <li v-for="(child,i) in item.children" :key="i" class="vps-sidebar-sub-menu-item">
             <div class="vps-sidebar-sub-menu-item-label">
-            <router-link :to="child.to?child.to:'/coming-soon'">{{item.label}}</router-link>
-            
+              <router-link :to="child.to?child.to:'/coming-soon'">{{item.label}}</router-link>
             </div>
           </li>
         </ul>
@@ -76,10 +75,10 @@
       <li v-for="(item,index) in extraItems" :key="item.label" class="vps-sidebar-menu-item">
         <div class="vps-sidebar-menu-item-content">
           <icon
-            class="vps-sidebar-menu-item-content-icon"
-            :name="item.icon?item.icon:'Addon'"
-            height="16px"
-            width="16px"
+              class="vps-sidebar-menu-item-content-icon"
+              :name="item.icon?item.icon:'Addon'"
+              height="16px"
+              width="16px"
           />
           <div class="vps-sidebar-menu-item-content-label">{{item.label}}</div>
           <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
@@ -88,20 +87,15 @@
         </div>
       </li>
     </ul>
-
     <slot name="toolbar"></slot>
   </aside>
 </template>
-
 <script>
 import expand from "../directives/expand";
-
 import Icon from "../components/icons";
-
 import Avatar from "../components/Avatar";
 import Badge from "../components/Badge";
 import EventBus from "../utils/EventBus.js";
-
 export default {
   name: "side-bar",
   data() {
@@ -113,29 +107,15 @@ export default {
           icon: "dashboard",
           details: {
             text: "New",
-            color: "#ffff11"
-          },
-          children: [
-            {
-              label: "Dashboard 1",
-              to: "/dashboard1"
-            },
-            {
-              label: "Dashboard 2",
-              to: "/dashboard2"
-            },
-            {
-              label: "Dashboard 3",
-              to: "/dashboard3"
-            }
-          ]
+            color: "#FFFF11"
+          }
         },
         {
           label: "Ecommerce",
           icon: "super-market",
           details: {
             text: "3",
-            color: "#ff4444"
+            color: "#FF4444"
           },
           children: [
             {
@@ -204,7 +184,7 @@ export default {
           icon: "document",
           details: {
             text: "Beta",
-            color: "#1111ff"
+            color: "#1111FF"
           }
         },
         {
@@ -224,7 +204,6 @@ export default {
       this.expandedIndex = this.expandedIndex === index ? -1 : index;
     }
   },
-
   components: {
     Icon,
     Avatar,
@@ -240,7 +219,6 @@ export default {
   }
 };
 </script>
-
 <style>
 .fade-enter-active,
 .fade-leave-active {
@@ -249,10 +227,8 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translateY(-100%);
-
   height: 0;
 }
-
 .flip-list-move {
   transition: all 1s;
 }
