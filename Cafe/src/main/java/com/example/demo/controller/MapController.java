@@ -29,7 +29,6 @@ public class MapController {
     @PostMapping("/list")
     public ResponseEntity<List<Marker>> register(@Validated @RequestBody Marker marker) throws Exception {
         log.info("Controller Maker List");
-        service.create(marker);
 
         return new ResponseEntity<>(service.list(marker), HttpStatus.OK);
     }
