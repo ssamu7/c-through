@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="menu">
     <h1 class="title">M E N U</h1>
     <CardGrid :events="events" :buttonText="'Register'" @buttonClicked="eventHandler" />
   </div>

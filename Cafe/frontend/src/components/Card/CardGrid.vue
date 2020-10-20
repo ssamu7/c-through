@@ -45,17 +45,18 @@ export default {
   },
   methods: {
     onOpen(value) {
+      console.log("value : " + value)
       if (!this.full) {
         this.full = true;
         this.selected = value;
-        this.$router.push({ path: "/", query: { event: value } });
+        this.$router.push({ path: "/Menu", query: { event: value } });
       }
     },
     onClose() {
       setTimeout(() => {
         this.full = false;
       }, 400);
-      this.$router.push({ path: "/", query: {} });
+      this.$router.push({ path: "/Menu", query: {} });
     }
   },
   created() {
