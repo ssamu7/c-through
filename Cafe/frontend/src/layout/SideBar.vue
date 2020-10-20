@@ -72,7 +72,7 @@
       <li class="vps-sidebar-menu-header">
         <h4>Extra</h4>
       </li>
-      <li v-for="(item,index) in extraItems" :key="item.label" class="vps-sidebar-menu-item">
+      <li v-for="(item, index) in extraItems" :key="item.label" class="vps-sidebar-menu-item">
         <div class="vps-sidebar-menu-item-content">
           <icon
               class="vps-sidebar-menu-item-content-icon"
