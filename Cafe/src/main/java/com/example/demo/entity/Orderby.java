@@ -7,30 +7,33 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-
 @JsonIgnoreProperties(value="hibernateLazyInitializer")
 @Getter
 @Setter
-@EqualsAndHashCode(of = "markerno")
+@EqualsAndHashCode(of = "orderNo")
 @ToString
 @Entity
-@Table(name = "fav")
-public class Marker {
+@Table(name = "orders")
+public class Orderby {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //  즐겨찾기 번호
-    @Column(name = "markerno")
-    private Long markerNo;
+    //  주문 번호
+    @Column(name = "orderNo")
+    private Long orderNo;
 
     //  주문자 닉네임
-    @Column(nullable = false)
+    @Column(nullable = false, length=100)
     private String nickname;
 
-    //  카페 이름
+    //  주문 한것
     @Column(nullable = false)
-    private String cafename;
+    private String orders;
 
-    //  카페 전화번호
+    //  주문 수량
     @Column(nullable = false)
-    private String cafecall;
+    private int cafenum;
+
+    //  카페 위치
+    @Column(nullable = false)
+    private String place;
 }
