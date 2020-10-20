@@ -4,11 +4,13 @@ import VueComp from '@vue/composition-api'
 Vue.config.productionTip = false
 import router from './routes';
 import store from './store';
+import vuetify from './plugins/vuetify';
 
 Vue.use(VueComp)
 
 new Vue({
   router,
   store,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')
