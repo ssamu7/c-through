@@ -1,35 +1,25 @@
 <template>
   <div :class="classObject">
-    <side-bar>
-      <template v-if="sidebarOpen" v-slot:toolbar>
-        <toolbar :isIntop="false"/>
-      </template>
-      <template v-if="sidebarOpen" #search>
-        <input-search/>
-      </template>
-    </side-bar>
-    <vps-header>
-    <template  #search>
-        <transition name="move-input">
-          <input-search v-if="!sidebarOpen"/>
-        </transition>
-      </template>
-      <template v-slot:toolbar>
-        <transition name="move">
-          <toolbar v-if="!sidebarOpen" :isIntop="true"/>
-        </transition>
-      </template>
-      
-    </vps-header>
+      <side-bar>
+        <template v-if="sidebarOpen" v-slot:toolbar>
+          <toolbar :isIntop="false"/>
+        </template>
+        <template v-if="sidebarOpen" #search>
+          <input-search/>
+        </template>
+      </side-bar>
+      <vps-header>
+        <template  #search>
+          <transition name="move-input">
+            <input-search v-if="!sidebarOpen"/>
+          </transition>
+        </template>
+      </vps-header>
     <main-content/>
-    
     <vps-footer></vps-footer>
   </div>
 </template>
 
-</side-bar>
-</div>
-</template>
 
 <script>
 import SideBar from "./SideBar.vue";
@@ -39,6 +29,7 @@ import MainContent from "./MainContent.vue";
 import EventBus from "../utils/EventBus.js";
 import Toolbar from "../components/bars/Toolbar.vue";
 import InputSearch from "../components/form/InputSearch";
+import Home from "@/views/Home.vue";
 import "./style.scss";
 export default {
   name: "wrapper",
@@ -59,8 +50,7 @@ export default {
     SideBar,
     "vps-header": Header,
     "vps-footer": Footer,
-   
-
+    Home,
     MainContent,
     EventBus,
     Toolbar,

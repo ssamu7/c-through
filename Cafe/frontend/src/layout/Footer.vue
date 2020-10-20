@@ -1,7 +1,7 @@
 <template>
   <footer class="vps-footer">
     <div class="copyright">
-      &#9400; {{new Date().getFullYear()}}, made with
+      {{new Date().getFullYear()}}, made with
       <span class="vps-heart-char">&#10084;</span> by
       <i>
         <b>C-thorugh</b>

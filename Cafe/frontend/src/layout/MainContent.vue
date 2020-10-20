@@ -15,10 +15,10 @@
           <template #body>
             <div class="vps-theme-colors">
               <label
-                class="vps-theme-color"
-                v-for="(col,key,i) in colors"
-                @click="chooseTheme(col)"
-                :key="i"
+                  class="vps-theme-color"
+                  v-for="(col,key,i) in colors"
+                  @click="chooseTheme(col)"
+                  :key="i"
               >
                 <div class="color" :style="{background:col.sidebarColor}"></div>
                 <div class="color" :style="{background:col.headerColor}"></div>
@@ -29,7 +29,6 @@
         </card>
       </vps-drawer>
     </div>
-
     <div class="vps-main">
       <router-view></router-view>
     </div>
@@ -240,20 +239,20 @@ export default {
   methods: {
     chooseTheme(color, newTheme = true) {
       document.documentElement.style.setProperty(
-        "--side-bg-color",
-        color.sidebarColor
+          "--side-bg-color",
+          color.sidebarColor
       );
       document.documentElement.style.setProperty(
-        "--header-bg-color",
-        color.headerColor
+          "--header-bg-color",
+          color.headerColor
       );
       document.documentElement.style.setProperty(
-        "--sidebarColor",
-        color.sidebarColor
+          "--sidebarColor",
+          color.sidebarColor
       );
       document.documentElement.style.setProperty(
-        "--headerColor",
-        color.headerColor
+          "--headerColor",
+          color.headerColor
       );
       if (newTheme) {
         localStorage.setItem("vpscolor", JSON.stringify(color));

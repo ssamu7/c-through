@@ -19,25 +19,25 @@ public class MarkerRepository {
 
     public void create(Marker marker) throws Exception {
         log.info("Repository Marker create");
-        String query = "insert into marker(nickname, cafename, cafecall) values(?, ?, ?)";
-        jdbcTemplate.update(query, marker.getNickname(), marker.getCafename(), marker.getCafecall());
+        String query = "insert into marker(userid, cafename, cafenum) values(?, ?, ?)";
+        jdbcTemplate.update(query, marker.getUserid(), marker.getCafename(), marker.getCafenum());
     }
 
     public List<Marker> list(Marker marker) throws Exception {
         log.info("Repository Marker list()");
         List<Marker> results = jdbcTemplate.query(
-            "select cafename, cafecall from marker where userid = ?",
+            "select cafename, cafenum from marker where userid",
             new RowMapper<Marker>() {
                 @Override
                 public Marker mapRow(ResultSet rs, int rowNum)
                         throws SQLException {
                     Marker marker = new Marker();
                     marker.setCafename(rs.getString("cafename"));
-                    marker.setCafecall(rs.getString("cafecall"));
+                    marker.setCafenum(rs.getString("cafenum"));
 
                     return marker;
                 }
-            }, marker.getNickname()
+            }, marker.getUserid()
         );
         return results;
     }

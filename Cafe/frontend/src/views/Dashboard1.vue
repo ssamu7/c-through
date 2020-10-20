@@ -1,12 +1,13 @@
 <template>
-    <div>
+  <div>
     Dashboard view 1
-    </div>
+  </div>
 </template>
 
 <script>
+
 export default {
-name:'dashboard1'
+  name:'dashboard1'
 }
 </script>
 

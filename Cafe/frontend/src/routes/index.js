@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-  
+
 const Dashboard1 = () => import('../views/Dashboard1.vue')
 const Dashboard2 = () => import('../views/Dashboard2.vue')
 const Dashboard3 = () => import('../views/Dashboard3.vue')
 const ComingSoon = () => import('../views/ComingSoon.vue')
+const Menu = () => import('../views/Menu')
+const Home = () => import('../views/Home')
 Vue.use(Router)
 
 
@@ -29,6 +31,16 @@ export default new Router({
             path: '/coming-soon',
             name: 'ComingSoon',
             component: ComingSoon,
+        },
+        {
+            path: '/Menu',
+            name: 'Menu',
+            component: Menu,
+        },
+        {
+            path: '/',
+            name: 'Home',
+            component: Home,
         }
 
     ]
