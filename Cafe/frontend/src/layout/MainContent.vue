@@ -1,11 +1,6 @@
 <template>
-  <div class="vps-main-content">
-    <div class="vps-main">
-      <router-view></router-view>
-    </div>
-     <div>
-      <Map />
-    </div>
+  <div>
+    <Map />
   </div>
 </template>
 
@@ -20,7 +15,8 @@ import Map from "../components/Map/Map"
 export default {
   data() {
     return {
-      showThemeSettings: false
+      showThemeSettings: false,
+      themeCol: ""
     };
   },
   computed: {

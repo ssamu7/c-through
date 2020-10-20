@@ -68,16 +68,17 @@ mounted() {
 
         function displayMarker(place) {
             // 마커를 생성하고 지도에 표시합니다
-            let markerPositon = new kakao.maps.LatLng(place.y, place.x)
-            
-            let marker = new kakao
-                .maps
-                .Marker({
-                    map: map,
-                    position: markerPositon
-                });
+            let imageSrc = 'http://snowysol.myqnapcloud.com:8080/share.cgi/cafe.jpg?ssid=0EgpcoT&fid=0EgpcoT&open=normal&ep=',
+                imageSize = new kakao.maps.Size(60, 60)
+
+            let markerPositon = new kakao.maps.LatLng(place.y, place.x),
+                markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
+            let marker = new kakao.maps.Marker({ 
+              image: markerImage,
+              position: markerPositon
+            });
             marker.setMap(map);
-            
+            // 인포윈도우를 생성하고 지도에 표시합니다
             let content = '<div sytle="font-size:12px;">hi</div>' + 
                             '<div style="padding:50px;font-size:12px;">' +
                             '<a href="https://www.naver.com" style="color:red" target="_blank">' + 
