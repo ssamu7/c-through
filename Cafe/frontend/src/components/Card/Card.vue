@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       full: false,
-      hover: false
+      hover: true,
     }
   },
   created() {

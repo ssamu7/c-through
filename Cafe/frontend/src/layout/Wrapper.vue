@@ -1,9 +1,6 @@
 <template>
   <div :class="classObject">
     <side-bar>
-      <template v-if="sidebarOpen" v-slot:toolbar>
-        <toolbar :isIntop="false"/>
-      </template>
       <template v-if="sidebarOpen" #search>
         <input-search/>
       </template>
@@ -14,16 +11,9 @@
           <input-search v-if="!sidebarOpen"/>
         </transition>
       </template>
-      <template v-slot:toolbar>
-        <transition name="move">
-          <toolbar v-if="!sidebarOpen" :isIntop="true"/>
-        </transition>
-      </template>
-      
     </vps-header>
     <main-content/>
-    
-    <vps-footer></vps-footer>
+
   </div>
 </template>
 
@@ -39,6 +29,7 @@ import MainContent from "./MainContent.vue";
 import EventBus from "../utils/EventBus.js";
 import Toolbar from "../components/bars/Toolbar.vue";
 import InputSearch from "../components/form/InputSearch";
+
 import "./style.scss";
 export default {
   name: "wrapper",
