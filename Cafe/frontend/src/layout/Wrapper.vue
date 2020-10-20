@@ -13,7 +13,9 @@
       </template>
     </vps-header>
     <main-content/>
-
+    </vps-header>
+    <main-content/>
+    <vps-footer></vps-footer>
   </div>
 </template>
 
@@ -50,7 +52,7 @@ export default {
     SideBar,
     "vps-header": Header,
     "vps-footer": Footer,
-   
+
 
     MainContent,
     EventBus,

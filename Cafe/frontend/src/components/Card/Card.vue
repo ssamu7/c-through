@@ -85,7 +85,7 @@ export default {
 <style scoped>
 .card {
   position: relative;
-  height: 400px;  
+  height: 400px;
   width: 300px;
   box-shadow: 0 5px 20px rgba(120, 120, 120, 0.4);
   border: none;
@@ -257,7 +257,7 @@ export default {
 }
 
 .poster img {
-  width: 100%; 
+  width: 100%;
 }
 
 .btn {

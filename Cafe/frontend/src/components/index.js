@@ -14,3 +14,4 @@ import CardGrid from './Card/CardGrid';
 Vue.component('CardGrid', CardGrid);
 
 export default CardGrid;
+
