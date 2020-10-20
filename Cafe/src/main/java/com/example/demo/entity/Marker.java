@@ -11,7 +11,7 @@ import javax.persistence.*;
 @JsonIgnoreProperties(value="hibernateLazyInitializer")
 @Getter
 @Setter
-@EqualsAndHashCode(of = "map_no")
+@EqualsAndHashCode(of = "markerno")
 @ToString
 @Entity
 @Table(name = "marker")

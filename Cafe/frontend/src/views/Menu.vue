@@ -9,7 +9,7 @@
 import CardGrid from "@/components/Card/CardGrid";
 
 export default {
-  name: "menu",
+  name: "Menu",
   components: {
     CardGrid
   },

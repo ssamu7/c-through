@@ -2,14 +2,14 @@
   <transition-group name="fade" mode="out-in" tag="div" class="main-container">
     <div class="event-container" :class="{ 'full-container': (full && selected == event.name) }" v-for="event in events" :key="event.name">
       <Card
-        :event="event"
-        :buttonText="buttonText"
-        :hideTitle="hideTitle"
-        :hideButton="hideButton"
-        @onOpen="onOpen"
-        @onClose="onClose"
-        @buttonClicked="$emit('buttonClicked')"
-        v-if="(!full) || (full && selected == event.name)"
+          :event="event"
+          :buttonText="buttonText"
+          :hideTitle="hideTitle"
+          :hideButton="hideButton"
+          @onOpen="onOpen"
+          @onClose="onClose"
+          @buttonClicked="$emit('buttonClicked')"
+          v-if="(!full) || (full && selected == event.name)"
       />
     </div>
   </transition-group>

@@ -1,36 +1,36 @@
 <template>
-    <div class="card" :class="{ 'full': full }" @mouseover="hover = true" @mouseleave="hover = false" @click="goToEvent">
-      <div class="card-image" :style="{ 'background-image': 'url(' + getImgUrl(event.outerImage) + ')' }"></div>
-      <div class="card-body">
+  <div class="card" :class="{ 'full': full }" @mouseover="hover = true" @mouseleave="hover = false" @click="goToEvent">
+    <div class="card-image" :style="{ 'background-image': 'url(' + getImgUrl(event.outerImage) + ')' }"></div>
+    <div class="card-body">
 
-        <div class="close-btn mx-2" @click.stop="goBack" v-if="full">&#10006;</div>
+      <div class="close-btn mx-2" @click.stop="goBack" v-if="full">&#10006;</div>
 
-        <div class="title" v-if="full || !hideTitle">{{ event.name.toUpperCase() }}</div>
-        <div class="footer">
-          <transition name="slide-right">
-            <div class="extra" v-if="hover || full">
-              <p class="m-0" v-for="(detail, key) in event.details" :key="key">{{ key }}: {{ detail }}</p>
-            </div>
-          </transition>
-          <p class="date">
-            {{ event.date.split(',')[0] }}
-          </p>
-        </div>
-        <transition name="slide-left" tag="div">
-          <div class="info" v-if="full">
-            <div class="text">
-              <h2>Description</h2>
-              <p>{{ event.description }}</p>
-              <span v-if="event.html" v-html="event.html"></span>
-            </div>
-            <div class="poster">
-              <img :src="getImgUrl(event.innerImage)" :alt="event.name" class="w-100">
-            </div>
+      <div class="title" v-if="full || !hideTitle">{{ event.name.toUpperCase() }}</div>
+      <div class="footer">
+        <transition name="slide-right">
+          <div class="extra" v-if="hover || full">
+            <p class="m-0" v-for="(detail, key) in event.details" :key="key">{{ key }}: {{ detail }}</p>
           </div>
         </transition>
-        <button class="btn register" v-if="full && !hideButton" @click="onButtonClick">{{ buttonText }}</button>
+        <p class="date">
+          {{ event.date.split(',')[0] }}
+        </p>
       </div>
+      <transition name="slide-left" tag="div">
+        <div class="info" v-if="full">
+          <div class="text">
+            <h2>Description</h2>
+            <p>{{ event.description }}</p>
+            <span v-if="event.html" v-html="event.html"></span>
+          </div>
+          <div class="poster">
+            <img :src="getImgUrl(event.innerImage)" :alt="event.name" class="w-100">
+          </div>
+        </div>
+      </transition>
+      <button class="btn register" v-if="full && !hideButton" @click="onButtonClick">{{ buttonText }}</button>
     </div>
+  </div>
 </template>
 
 <script>
