@@ -14,15 +14,11 @@
           <input-search v-if="!sidebarOpen"/>
         </transition>
       </template>
-      <template v-slot:toolbar>
-        <transition name="move">
-          <toolbar v-if="!sidebarOpen" :isIntop="true"/>
-        </transition>
-      </template>
-      
+
+
     </vps-header>
     <main-content/>
-    
+
     <vps-footer></vps-footer>
   </div>
 </template>
@@ -59,7 +55,7 @@ export default {
     SideBar,
     "vps-header": Header,
     "vps-footer": Footer,
-   
+
 
     MainContent,
     EventBus,

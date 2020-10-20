@@ -87,7 +87,7 @@
         </div>
       </li>
     </ul>
-    <slot name="toolbar"></slot>
+
   </aside>
 </template>
 <script>
