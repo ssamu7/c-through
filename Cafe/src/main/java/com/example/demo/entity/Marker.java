@@ -11,26 +11,22 @@ import javax.persistence.*;
 @JsonIgnoreProperties(value="hibernateLazyInitializer")
 @Getter
 @Setter
-@EqualsAndHashCode(of = "markerno")
+@EqualsAndHashCode(of = "map_no")
 @ToString
 @Entity
-@Table(name = "fav")
+@Table(name = "marker")
 public class Marker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //  즐겨찾기 번호
     @Column(name = "markerno")
-    private Long markerNo;
+    private Long mapNo;
 
-    //  주문자 닉네임
     @Column(nullable = false)
-    private String nickname;
+    private String userid;
 
-    //  카페 이름
     @Column(nullable = false)
     private String cafename;
 
-    //  카페 전화번호
     @Column(nullable = false)
-    private String cafecall;
+    private String cafenum;
 }
