@@ -99,7 +99,8 @@ mounted() {
 
 <style>
 .map {
-  width: 100%;
-  height: 840px;
+  width: 100vw;
+  height: 100vh;
+  padding: 50px 50px 50px 50px;
 }
 </style>

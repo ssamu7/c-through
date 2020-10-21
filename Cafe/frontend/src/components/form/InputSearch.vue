@@ -1,9 +1,12 @@
 <template>
        <div class="vps-input-search-wrap">
-        <input type="text" class="vps-input-search-input" placeholder="Search ...">
-        <div class="vps-input-search-input-append">
-          <icon name="search"/>
-        </div>
+         <div class="copyright">
+           {{new Date().getFullYear()}},
+           <span class="vps-heart-char">&#10084;</span> by
+           <i>
+             <router-link to="/">C-through</router-link>
+           </i>
+         </div>
       </div>
 </template>
 

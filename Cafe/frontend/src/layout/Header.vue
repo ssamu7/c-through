@@ -1,11 +1,7 @@
 <template>
   <header class="vps-header" :class="{'vps-header-extended':!sidebarOpen}" ref="header">
     <hamburger-menu :open="sidebarOpen" @toggle="toggleSidebar"/>
-
-
- <slot name="search"></slot>
-
-    <slot name="toolbar"></slot>
+    <slot name="search"></slot>
   </header>
 </template>
 

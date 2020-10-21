@@ -75,7 +75,7 @@ export default {
   flex-wrap: wrap;
 }
 .full-container {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;

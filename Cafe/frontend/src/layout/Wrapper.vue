@@ -16,7 +16,6 @@
         </template>
       </vps-header>
     <main-content/>
-    <vps-footer></vps-footer>
   </div>
 </template>
 
@@ -24,7 +23,6 @@
 <script>
 import SideBar from "./SideBar.vue";
 import Header from "./Header.vue";
-import Footer from "./Footer.vue";
 import MainContent from "./MainContent.vue";
 import EventBus from "../utils/EventBus.js";
 import Toolbar from "../components/bars/Toolbar.vue";
@@ -49,7 +47,6 @@ export default {
   components: {
     SideBar,
     "vps-header": Header,
-    "vps-footer": Footer,
     Home,
     MainContent,
     EventBus,
