@@ -5,7 +5,7 @@ const Dashboard1 = () => import('../views/Dashboard1.vue')
 const Dashboard2 = () => import('../views/Dashboard2.vue')
 const Dashboard3 = () => import('../views/Dashboard3.vue')
 const ComingSoon = () => import('../views/ComingSoon.vue')
-const Menu = () => import('../views/Menu')
+const Menu = () => import('../views/Menu.vue')
 Vue.use(Router)
 
 
@@ -34,7 +34,7 @@ export default new Router({
         {
             path: '/Menu',
             name: 'Menu',
-            component: Menu,
+            component: Menu
         }
 
     ]

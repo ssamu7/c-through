@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Map />
+        <Map />
   </div>
 </template>
 
@@ -11,6 +11,7 @@ import Icon from "../components/icons";
 import Drawer from "../components/containers/Drawer";
 import Button from "../components/actions/Button";
 import Map from "../components/Map/Map"
+
 
 export default {
   data() {

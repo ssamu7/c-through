@@ -12,7 +12,9 @@
         </transition>
       </template>
     </vps-header>
-    <main-content/>
+    <main-content>
+
+    </main-content>
     </vps-header>
     <main-content/>
     <vps-footer></vps-footer>
@@ -24,6 +26,7 @@
 </template>
 
 <script>
+
 import SideBar from "./SideBar.vue";
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
