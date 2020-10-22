@@ -5,6 +5,8 @@
 </template>
 
 <script>
+
+
 export default {
   mounted() {
     window.kakao && window.kakao.maps
@@ -71,11 +73,11 @@ export default {
         // 마커를 생성하고 지도에 표시합니다
         let imageSrc = ''
         if (a > 3 && a < 7) {
-          imageSrc = 'https://lh3.googleusercontent.com/35WgMiLUoIFV9hJ2b9TcsWeUzrGdTYoAdC4y0i79aTtKAX0djiSV7An94YhAL9IIZelB1lmoxbG7s-mx7QUicdYbcprh23O1SD6lUSGy5Cxl4uzr1prq_y6C68ta03WJC-ovTjhhKU60qa29TnQp-dIabyDnY8oMpGQmmPN4FFTCT1fWez3ILvm7rYzV2A7dOKpBaPXSIrF9ZyolS0zJDsqrPsJ9xQlLpINUX6nkwicKORKX7v7xguZxrc1u43KCydnsFvNi8pRtq0gQcZloQ5P1b4kuK89O7BEZCec6jEZ1n3quVXVa-tHuvRXExismMWa23E0sfL_5TmIdAyIBJ8fRDnt_11AVovvanu9iYZaLL0jisZp317Q-9o9f6NN6vLede5ZZ3BEHIS2ur9ghqL_s7uWXJrystuwK25cb67u-fwgBh9CJ9MX7dUMN6EMKOVJEzoE_yWLefUnsMp1O8_BHWB5zejHUqQiNsNgGUcFf-DJOzI8YP0kC0Zt6i9UeVM8dPak0wYhDT4OJkinuF5qE-4MtsaX-9NYS6jZpahA3tgg_aJdq9OzXev0RvtsopoeOKLnqqt_js6Cj5Vtx_y6vBE5l3pYa6bWsusYnX8INzBGVOgpCH0WWgsVpYIjZ6nUFLl8JpVlV9c_s9DfmxHmt1VdyAdOL4XJRremWpjIQL9HhfkahPGmzppzu=s104-no?authuser=0'
+          imageSrc = require("@/assets/cafeImage/cafe1.png")
         } else if (a > 7) {
-          imageSrc = 'https://lh3.googleusercontent.com/YO5ugyqHY-xVfRN59e2TYM0W2HXI54_6xYsanbZFFwLia7F3xmIQgIR4EPr-6bY1DqNLySODdcTUSn2Kvw6Sh8tEkwDASe_7l0zme3IUYEb6_8m58ZPW93EOkQMjgUJpHsBJG1IICPdD3NG4n-oGub9eXbXp4XrfaWGOY5gG1JTqMOcodSaOpmLFjDoen-zZd_3F1IZzZO-vrc_ci347lc7Ld-o_1KzgmuxCFCGMFch1esTpzkE7qlzKuVDCOVta_Rk9uv5KvzDrTHcyAz5Qo4UlxIdnjImm3JFU6XBAgsdI5hnVGrP-8oLz8ekJ5fflgwJ4jNSLRoBml3sJl6nnZzuW1hPSHtAPhKwvjBK_cVXGOasfoHxcmC_T9b-xr_EoY-O9vn1aBFOXRX0c2dO0fRSc3hyL8mEejlF6R95zAwpukIJ-lCFNee-71bDRGSg-2XjFEQgv9cQTfT_BRUAvrraJscqRhz5ldxg-cNkPtKXYMb2aqTKm2xomcJK8eOVxalXZiATNEG7cUJVri11KPxbylPXd3gQef1ZgzfkdKY_sinUD7cmEL2qDKQrJMESphUmqOPVCRgOn7WvSi0NrEdfG7aOEZMVYXt0uMXYxBrZh45AizP7NyQR8zVikyzBM27yicBVoq7sep_ldotFjmU033kOgCW9qhv866xyS4q3IuKOLNRp_fX1ERVD6=s104-no?authuser=0'
+          imageSrc = require("@/assets/cafeImage/cafe3.png")
         } else {
-          imageSrc = 'https://lh3.googleusercontent.com/YbXdeZwOErusm4AET3d9b0GCxnMB-i5kS_3KsZjbcBrXdBp3wUMgUdNrfv_AKAyzlsP8STJ6jY0mZrHatTdBGrLYIyMwBzsMZwRC6Yyx_iv1H0BN27V83yPJsZYwkKmIgLY_UWR_s1uwaBegfOP6KxuY_N0qW5bWeq2ZR4THhGJD9ysFyjrA4C1BkG3MvVjx6LCbEaFFkfwr7WmWPBHR8it71i8THO1Qs7S6ZS_n2zWGDMnRb2990qZagDt9S6Qyj59Xi5KSCI7r6Sg-xQp9L4wqfWL0neKx34d-KzyNBo55VXf3VtI2xbt7r87x7EbE5O5mb7mNLHgypI2VgbmDBztdLoWbkowwMJ3eM4MwCb6gGIP4Du1YncElZB_0HxCzm2pW__BxN--BV7JduKl1LhHGWAofqgnIXHBboIhZwSZ_cgSGYf-JRaJuR52CjJVmKTZxQxp_vWR-RFAEcCwuTJ52uLvPKMazYt-BtstjlUxZqElZwS1DP8-_t8Z26xY9-x_s1ksxhu4_O6uY3jzhigaLB6ABiebyqXaJGsbXTt4_VSvMYidEvLpKfUzgjfPyA7NZj2IZ0ZtJfqh0FJ1ZBrVL1bvn5o5Zwuf2fCE-XDzYrb-1p85hlVQb0dLbMVSi3RUGnepFQ_bnQEZaCe60athPfeihHrQypbpODqP5aC1DynWUZI9qqVmfhsnc=s104-no?authuser=0'
+          imageSrc = require("@/assets/cafeImage/cafe2.png")
         }
         console.log(a)
         let imageSize = new kakao.maps.Size(65, 65)
