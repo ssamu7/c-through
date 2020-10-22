@@ -71,7 +71,7 @@ export default {
         // 마커를 생성하고 지도에 표시합니다
         let imageSrc = ''
         if (a > 3 && a < 7) {
-          imageSrc = 'https://lh3.googleusercontent.com/35WgMiLUoIFV9hJ2b9TcsWeUzrGdTYoAdC4y0i79aTtKAX0djiSV7An94YhAL9IIZelB1lmoxbG7s-mx7QUicdYbcprh23O1SD6lUSGy5Cxl4uzr1prq_y6C68ta03WJC-ovTjhhKU60qa29TnQp-dIabyDnY8oMpGQmmPN4FFTCT1fWez3ILvm7rYzV2A7dOKpBaPXSIrF9ZyolS0zJDsqrPsJ9xQlLpINUX6nkwicKORKX7v7xguZxrc1u43KCydnsFvNi8pRtq0gQcZloQ5P1b4kuK89O7BEZCec6jEZ1n3quVXVa-tHuvRXExismMWa23E0sfL_5TmIdAyIBJ8fRDnt_11AVovvanu9iYZaLL0jisZp317Q-9o9f6NN6vLede5ZZ3BEHIS2ur9ghqL_s7uWXJrystuwK25cb67u-fwgBh9CJ9MX7dUMN6EMKOVJEzoE_yWLefUnsMp1O8_BHWB5zejHUqQiNsNgGUcFf-DJOzI8YP0kC0Zt6i9UeVM8dPak0wYhDT4OJkinuF5qE-4MtsaX-9NYS6jZpahA3tgg_aJdq9OzXev0RvtsopoeOKLnqqt_js6Cj5Vtx_y6vBE5l3pYa6bWsusYnX8INzBGVOgpCH0WWgsVpYIjZ6nUFLl8JpVlV9c_s9DfmxHmt1VdyAdOL4XJRremWpjIQL9HhfkahPGmzppzu=s104-no?authuser=0'
+          imageSrc = 'http://snowysol.myqnapcloud.com:8080/share.cgi/cafe2.jpg?ssid=0AIuji8&fid=0AIuji8&open=normal&ep='
         } else if (a > 7) {
           imageSrc = 'https://lh3.googleusercontent.com/YO5ugyqHY-xVfRN59e2TYM0W2HXI54_6xYsanbZFFwLia7F3xmIQgIR4EPr-6bY1DqNLySODdcTUSn2Kvw6Sh8tEkwDASe_7l0zme3IUYEb6_8m58ZPW93EOkQMjgUJpHsBJG1IICPdD3NG4n-oGub9eXbXp4XrfaWGOY5gG1JTqMOcodSaOpmLFjDoen-zZd_3F1IZzZO-vrc_ci347lc7Ld-o_1KzgmuxCFCGMFch1esTpzkE7qlzKuVDCOVta_Rk9uv5KvzDrTHcyAz5Qo4UlxIdnjImm3JFU6XBAgsdI5hnVGrP-8oLz8ekJ5fflgwJ4jNSLRoBml3sJl6nnZzuW1hPSHtAPhKwvjBK_cVXGOasfoHxcmC_T9b-xr_EoY-O9vn1aBFOXRX0c2dO0fRSc3hyL8mEejlF6R95zAwpukIJ-lCFNee-71bDRGSg-2XjFEQgv9cQTfT_BRUAvrraJscqRhz5ldxg-cNkPtKXYMb2aqTKm2xomcJK8eOVxalXZiATNEG7cUJVri11KPxbylPXd3gQef1ZgzfkdKY_sinUD7cmEL2qDKQrJMESphUmqOPVCRgOn7WvSi0NrEdfG7aOEZMVYXt0uMXYxBrZh45AizP7NyQR8zVikyzBM27yicBVoq7sep_ldotFjmU033kOgCW9qhv866xyS4q3IuKOLNRp_fX1ERVD6=s104-no?authuser=0'
         } else {
@@ -79,6 +79,7 @@ export default {
         }
         console.log(a)
         let imageSize = new kakao.maps.Size(65, 65)
+
 
         let markerPositon = new kakao.maps.LatLng(place.y, place.x),
             markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
