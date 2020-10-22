@@ -202,6 +202,7 @@ export default {
   methods: {
     expand(index) {
       this.expandedIndex = this.expandedIndex === index ? -1 : index;
+      this.isOpen = false
     }
   },
   components: {
