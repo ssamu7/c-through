@@ -72,17 +72,19 @@ mounted() {
                 imageSize = new kakao.maps.Size(60, 60)
 
             let markerPositon = new kakao.maps.LatLng(place.y, place.x),
-                markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
-            let marker = new kakao.maps.Marker({ 
+                markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)""
+            let marker = new kakao.maps.Marker({
               image: markerImage,
               position: markerPositon
             });
+
             marker.setMap(map);
+
             // 인포윈도우를 생성하고 지도에 표시합니다
-            let content = '<div sytle="font-size:12px;">hi</div>' + 
+            let content = '<div sytle="font-size:12px;">hi</div>' +
                             '<div style="padding:50px;font-size:12px;">' +
-                            '<a href="https://www.naver.com" style="color:red" target="_blank">' + 
-                            place.place_name + '(체크)</div>'     
+                            '<a href="https://www.naver.com" style="color:red" target="_blank">' +
+                            place.place_name + '(체크)</div>'
             kakao
             .maps
             .event
