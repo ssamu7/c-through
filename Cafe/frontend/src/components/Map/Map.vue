@@ -82,6 +82,7 @@ export default {
         console.log(a)
         let imageSize = new kakao.maps.Size(65, 65)
 
+
         let markerPositon = new kakao.maps.LatLng(place.y, place.x),
             markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
 
@@ -98,20 +99,27 @@ export default {
         //                 '<div style="padding:50px;font-size:12px;">' +
         //                 '<a href="https://www.naver.com" style="color:#ff0000" target="_blank">' +
         //                 place.place_name + '(체크)</div>'
-        // let content = '<div class="overlaybox">' +
-        //     '    <div class="boxtitle"></div>' +
-        //     '    <div class="first">' +
-        //     '        <div class="placeName text">' + place.place_name + '</div>' +
-        //     '    </div>' +
-        //     '    <ul>' +
-        //     '        <li>' +
-        //     '            <span class="title">혼잡도'+ '</span>' +
-        //     '        </li>' +
-        //     '        <li>' +
-        //     '            <span class="title">즐겨찾기</span>' +
-        //     '        </li>' +
-        //     '    </ul>' +
-        //     '</div>';;
+        let imageCafe = require("@/assets/box_movie.png")
+        let content = '<div class ="overlaybox">' +
+            '    <div class="boxtitle"></div>' +
+            '    <div class="first">' +
+            '        <div class="placeName text">' + place.place_name + '<br>' +
+            '        <span style="font-size: 10px">' + place.address_name + '</span>' +
+            '        </div>' +
+            '    </div>' +
+            '    <ul>' +
+            '        <li>' +
+            '            <span class="title">혼잡도' + '</span>' +
+            '        </li>' +
+            '        <li>' +
+            '            <span class="title">즐겨찾기</span>' +
+            '        </li>' +
+            '        <li>' +
+            '            <span class="title">' + '<router-link to="Menu"/>' +
+            '             주문</span>' +
+            '        </li>' +
+            '    </ul>' +
+            '</div>'
 
         kakao
             .maps
@@ -131,61 +139,70 @@ export default {
 .map {
   width: 100vw;
   height: 100vh;
-  padding: 50px 50px 50px 50px;
 }
 
-/*.overlaybox {*/
-/*  position: relative;*/
-/*  width: 360px;*/
-/*  height: 350px;*/
-/*  background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/box_movie.png') no-repeat;*/
-/*  padding: 15px 10px;*/
-/*}*/
-/*.overlaybox li {*/
-/*  list-style: none;*/
-/*}*/
-/*!* css main image*!*/
-/*.overlaybox .first {*/
-/*  position: relative;*/
-/*  width: 247px;*/
-/*  height: 136px;*/
-/*  background: url('https://img.lovepik.com/photo/40155/7458.jpg_wh860.jpg');*/
-/*  background-size: 247px 136px;*/
-/*  margin-bottom: 8px;*/
-/*}*/
-/*.first .text {*/
-/*  color: white;*/
-/*  font-weight: bold;*/
-/*}*/
-/*.first .placeName {*/
-/*  position: absolute;*/
-/*  width: 100%;*/
-/*  bottom: 0;*/
-/*  background: rgba(0, 0, 0, 0.4);*/
-/*  padding: 7px 15px;*/
-/*  font-size: 14px;*/
-/*}*/
-/*.overlaybox ul {*/
-/*  width: 247px;*/
-/*}*/
-/*.overlaybox li {*/
-/*  position: relative;*/
-/*  margin-bottom: 2px;*/
-/*  background: #2b2d36;*/
-/*  padding: 5px 10px;*/
-/*  color: #aaabaf;*/
-/*  line-height: 1;*/
-/*}*/
-/*.overlaybox li span {*/
-/*  display: inline-block;*/
-/*}*/
-/*.overlaybox li .title {*/
-/*  font-size: 13px;*/
-/*}*/
-/*.overlaybox li:hover {*/
-/*  color: #fff;*/
-/*  background: #d24545;*/
-/*}*/
+.overlaybox {
+  position: relative;
+  width: auto;
+  /*height: auto;*/
+  background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/box_movie.png') no-repeat;
+  padding: 15px 10px;
+  opacity: 85%;
+  border-radius: 5px;
+}
 
+.overlaybox li {
+  list-style: none;
+}
+
+/* css main image*/
+.overlaybox .first {
+  position: relative;
+  width: 247px;
+  height: 136px;
+  background: url('https://img.lovepik.com/photo/40155/7458.jpg_wh860.jpg');
+  background-size: 247px 136px;
+  margin-bottom: 8px;
+}
+
+.first .text {
+  color: white;
+  font-weight: bold;
+}
+
+.first .placeName {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 7px 15px;
+  font-size: 14px;
+}
+
+.overlaybox ul {
+  width: 247px;
+}
+
+.overlaybox li {
+  position: relative;
+  margin-bottom: 2px;
+  background: #2b2d36;
+  padding: 5px 10px;
+  color: #aaabaf;
+  line-height: 1;
+}
+
+.overlaybox li span {
+  display: inline-block;
+}
+
+.overlaybox li .title {
+  font-size: 13px;
+}
+
+.overlaybox li:hover {
+  color: #fff;
+  background: #d24545;
+}
 
 </style>

@@ -19,7 +19,8 @@
         <div
             class="vps-sidebar-user-status"
             :style="{'--status-color':true?'#06EF61':'#FB0508'}"
-        >Online</div>
+        >Online
+        </div>
       </div>
     </div>
     <div class="vps-sidebar-search">
@@ -45,9 +46,9 @@
               height="16px"
               width="16px"
           />
-          <div class="vps-sidebar-menu-item-content-label" >
+          <div class="vps-sidebar-menu-item-content-label">
             <router-link to="/Menu">
-              {{item.label}}
+              {{ item.label }}
             </router-link>
           </div>
           <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
@@ -64,7 +65,7 @@
         <ul class="vps-sidebar-sub-menu expand" v-expand="index===expandedIndex">
           <li v-for="(child,i) in item.children" :key="i" class="vps-sidebar-sub-menu-item">
             <div class="vps-sidebar-sub-menu-item-label">
-              <router-link :to="child.to?child.to:'/coming-soon'">{{item.label}}</router-link>
+              <router-link :to="child.to?child.to:'/coming-soon'">{{ item.label }}</router-link>
             </div>
           </li>
         </ul>
@@ -80,7 +81,7 @@
               height="16px"
               width="16px"
           />
-          <div class="vps-sidebar-menu-item-content-label">{{item.label}}</div>
+          <div class="vps-sidebar-menu-item-content-label">{{ item.label }}</div>
           <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
             <badge :color="item.details.color" :text="item.details.text"/>
           </div>
@@ -96,6 +97,7 @@ import Icon from "../components/icons";
 import Avatar from "../components/Avatar";
 import Badge from "../components/Badge";
 import EventBus from "../utils/EventBus.js";
+
 export default {
   name: "side-bar",
   data() {
@@ -202,6 +204,7 @@ export default {
   methods: {
     expand(index) {
       this.expandedIndex = this.expandedIndex === index ? -1 : index;
+      this.isOpen = false;
     }
   },
   components: {
@@ -225,10 +228,13 @@ export default {
   transition: all 1s;
   max-height: 100%;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
   transform: translateY(-100%);
   height: 0;
 }
+
 .flip-list-move {
   transition: all 1s;
 }
