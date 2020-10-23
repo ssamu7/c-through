@@ -6,6 +6,7 @@
 
 <script>
 import Wrapper from './layout/Wrapper.vue'
+
 export default {
   name: 'App',
   data: () => ({}),

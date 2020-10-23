@@ -1,7 +1,7 @@
 <template>
   <aside class="vps-sidebar" :class="{'vps-sidebar-closed':!isOpen}">
     <div class="vps-logo">
-      <h3>C-Through</h3>
+      <i class="fas fa-home"></i>
     </div>
     <div class="vps-sidebar-user" v-if="TF" id="loginTF">
       <div class="vps-sidebar-user--details">
@@ -20,9 +20,9 @@
         </div>
       </div>
     </div>
-    <div v-else id="loginTF">
+    <div v-else id="loginTF" class="loginTF">
         <router-link to="/login">
-          로그인 버튼
+          <i class="fas fa-sign-in-alt">&nbsp; Sign In</i>
         </router-link>
     </div>
     <div class="vps-sidebar-search">
@@ -89,8 +89,8 @@
           </div>
         </div>
       </li>
-      <li class="vps-sidebar-menu-header" v-if="TF">
-        <h4>로그아웃</h4>
+      <li class="logoutTF" v-if="TF">
+        <i class="fas fa-sign-in-alt">&nbsp; Log Out</i>
       </li>
     </ul>
 
@@ -108,7 +108,7 @@ export default {
   data() {
     return {
       isOpen: true,
-      TF: false,
+      TF: true,
       items: [
         {
           label: "Dashboard",
@@ -244,4 +244,25 @@ export default {
 .flip-list-move {
   transition: all 1s;
 }
+
+.loginTF {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginTF i {
+  font-size: 18px;
+}
+
+.vps-logo i {
+  font-size: 40px;
+}
+
+.logoutTF i {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 12px;
+  font-size: 18px;
+}
+
 </style>
