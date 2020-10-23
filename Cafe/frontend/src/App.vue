@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <wrapper />
+    <wrapper/>
   </div>
 </template>
 
 <script>
 import Wrapper from './layout/Wrapper.vue'
+
 export default {
   name: 'App',
-  data: () => ({
-
-  }),
+  data: () => ({}),
   components: {
     Wrapper
   },
