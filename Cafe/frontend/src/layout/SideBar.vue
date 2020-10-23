@@ -3,7 +3,7 @@
     <div class="vps-logo">
       <h3>C-Through</h3>
     </div>
-    <div class="vps-sidebar-user">
+    <div class="vps-sidebar-user" v-if="TF" id="loginTF">
       <div class="vps-sidebar-user--details">
         <div class="vps-sidebar-user-avatar">
           <avatar/>
@@ -13,15 +13,17 @@
           <b>Smith</b>
         </div>
         <div class="vps-sidebar-user-role">Administrator</div>
-        <!-- bind the CSS variable to the user status depending on vuex store state or any other property
-              like '--status-color':user.isOnline?'#06EF61':'#FB0508'
-        -->
         <div
             class="vps-sidebar-user-status"
             :style="{'--status-color':true?'#06EF61':'#FB0508'}"
         >Online
         </div>
       </div>
+    </div>
+    <div v-else id="loginTF">
+        <router-link to="/login">
+          로그인 버튼
+        </router-link>
     </div>
     <div class="vps-sidebar-search">
       <slot name="search"></slot>
@@ -48,7 +50,7 @@
           />
           <div class="vps-sidebar-menu-item-content-label">
             <router-link to="/Menu">
-              {{item.label}}
+              {{ item.label }}
             </router-link>
           </div>
           <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
@@ -65,7 +67,7 @@
         <ul class="vps-sidebar-sub-menu expand" v-expand="index===expandedIndex">
           <li v-for="(child,i) in item.children" :key="i" class="vps-sidebar-sub-menu-item">
             <div class="vps-sidebar-sub-menu-item-label">
-              <router-link :to="child.to?child.to:'/coming-soon'">{{item.label}}</router-link>
+              <router-link :to="child.to?child.to:'/coming-soon'">{{ item.label }}</router-link>
             </div>
           </li>
         </ul>
@@ -81,11 +83,14 @@
               height="16px"
               width="16px"
           />
-          <div class="vps-sidebar-menu-item-content-label">{{item.label}}</div>
+          <div class="vps-sidebar-menu-item-content-label">{{ item.label }}</div>
           <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
             <badge :color="item.details.color" :text="item.details.text"/>
           </div>
         </div>
+      </li>
+      <li class="vps-sidebar-menu-header" v-if="TF">
+        <h4>로그아웃</h4>
       </li>
     </ul>
 
@@ -103,6 +108,7 @@ export default {
   data() {
     return {
       isOpen: true,
+      TF: false,
       items: [
         {
           label: "Dashboard",
@@ -204,7 +210,7 @@ export default {
   methods: {
     expand(index) {
       this.expandedIndex = this.expandedIndex === index ? -1 : index;
-      this.isOpen = false
+      this.isOpen = false;
     }
   },
   components: {
