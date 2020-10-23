@@ -56,7 +56,7 @@ export default {
     }
   },
   created() {
-    if(this.event.name == this.$route.query.event) {
+    if (this.event.name == this.$route.query.event) {
       this.full = true;
     }
   },
@@ -70,7 +70,7 @@ export default {
       this.$emit('onClose');
     },
     getImgUrl(img) {
-      if(img.startsWith('https://') || img.startsWith('http://')) {
+      if (img.startsWith('https://') || img.startsWith('http://')) {
         return img;
       }
       return require('@/' + img);
@@ -94,19 +94,24 @@ export default {
   cursor: pointer;
   transition: all 500ms ease-out;
 }
+
 .card:hover {
   transform: scale(1.02);
   box-shadow: 0 10px 50px rgba(120, 120, 120, 0.4);
 }
+
 .card:hover .card-image::after {
   background: rgba(0, 0, 0, 0.6);
 }
+
 .card:hover .title {
   font-size: 1.5em;
 }
+
 .card:hover .title::after {
   bottom: -15px;
 }
+
 .card:hover .date {
   font-size: 1.6em;
   opacity: 1;
@@ -121,6 +126,7 @@ export default {
   background-size: cover;
   z-index: -1;
 }
+
 .card-image::after {
   content: '';
   position: absolute;
@@ -137,6 +143,7 @@ export default {
   padding: 30px;
   z-index: 2;
 }
+
 .title {
   position: relative;
   text-align: center;
@@ -146,6 +153,7 @@ export default {
   margin-top: 30px;
   transition: all 200ms ease-out;
 }
+
 .title::after {
   content: '';
   position: absolute;
@@ -157,15 +165,18 @@ export default {
   background: yellow;
   transition: all 200ms ease-out;
 }
+
 .footer {
   position: absolute;
   bottom: 20px;
   background: transparent;
 }
+
 .extra {
   margin: 20px 0;
   font-size: 1em;
 }
+
 .date {
   font-size: 1.2em;
   color: yellow;
@@ -176,20 +187,25 @@ export default {
 .slide-right-enter-active, .slide-right-leave-active {
   transition: all 300ms ease-out;
 }
+
 .slide-right-enter, .slide-right-leave-to {
   transform: translateX(-30px);
   opacity: 0;
 }
+
 .slide-left-enter-active {
   transition: all 400ms ease 500ms;
 }
+
 .slide-left-leave-active {
   transition: all 50ms;
 }
+
 .slide-left-enter {
   transform: translateX(100px);
   opacity: 0;
 }
+
 .slide-left-leave-to {
   opacity: 0;
 }
@@ -209,31 +225,38 @@ export default {
   z-index: 10;
   transition: all 800ms ease;
 }
+
 .card.full:hover {
   transform: scale(1);
   box-shadow: 0 0 0 white;
 }
+
 .card.full .card-image, .card.full .card-image::after {
   border-radius: 0;
 }
+
 .card.full .card-image::after {
   background: rgba(0, 0, 0, 0.90);
 }
+
 .card.full .title {
   text-align: left;
   font-size: 1.5em;
   transition: all 500ms ease-out;
 }
+
 .card.full .title::after {
   left: 0;
   transform: translateX(0);
   bottom: -15px;
   transition: all 500ms ease-out;
 }
+
 .card.full .footer {
   position: relative;
   margin-top: 60px;
 }
+
 .card.full .date {
   font-size: 1.6em;
 }
@@ -242,10 +265,12 @@ export default {
   display: flex;
   color: white;
 }
+
 .text {
   order: 2;
   width: 50vw;
 }
+
 .poster {
   width: 40vw;
   height: fit-content;
@@ -269,6 +294,7 @@ export default {
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.20);
   cursor: pointer;
 }
+
 .close-btn {
   position: absolute;
   top: 10px;
@@ -278,6 +304,7 @@ export default {
   color: white;
   cursor: pointer;
 }
+
 .register {
   position: relative;
   margin: 20px 0;
@@ -287,6 +314,7 @@ export default {
   border: 1px solid blue;
   box-shadow: 0 0 15px rgba(0, 0, 255, 0.5);
 }
+
 .register:hover {
   color: white;
   background: blue;
@@ -297,18 +325,22 @@ export default {
   .card {
     width: 80vw;
   }
+
   .info {
     flex-direction: column;
   }
+
   .poster {
     margin: 0 auto;
     margin-bottom: 30px;
     width: 80vw;
     order: 1;
   }
+
   .text {
     width: 80vw;
   }
+
   .register {
     margin: 30px 0;
   }
