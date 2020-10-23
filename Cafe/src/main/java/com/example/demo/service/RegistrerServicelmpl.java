@@ -1,10 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Register;
-import com.example.demo.reposirory.RegisterReposirory;
+import com.example.demo.repository.RegisterReposirory;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.regex.Pattern;
 
 @Log
 @Service
@@ -14,9 +16,17 @@ public class RegistrerServicelmpl implements RegisterService{
     private RegisterReposirory reposirory;
 
     @Override
-    public void register(Register register) throws Exception {
+    public int register(Register register) throws Exception {
         log.info("Service Register");
-        reposirory.create(register);
+        if(register.getId().length() > 4 && register.getNn().length() > 4
+                && register.getBr() > 99999 && register.getPw().length() > 6
+                && register.getPw().length() < 16
+                && Pattern.matches("\\\\w+@\\\\w+\\\\.\\\\w+(\\\\.\\\\w+)?", register.getEm())
+                && Pattern.matches("", register.getEm())
+        ) {
+            reposirory.create(register);
+        }
+        return 0;
     }
 
     @Override
