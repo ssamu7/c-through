@@ -1,4 +1,4 @@
-package com.example.demo.reposirory;
+package com.example.demo.repository;
 
 import com.example.demo.entity.Register;
 import lombok.extern.java.Log;
@@ -20,12 +20,8 @@ public class RegisterReposirory {
 
     public void create(Register register) throws Exception {
         log.info("Repository Register Create");
-        log.info("getUserName : " + register.getName() + "  getUserId : " + register.getId() + "  getUserPassword : " +
-                register.getPw() + "  getUserBirthday : " + register.getBr());
-        String query = "insert into register(" +
-                "name, id, pw, br) values(?, ?, ?, ?)";
-        jdbcTemplate.update(query, register.getName(), register.getId(),
-            register.getPw(), register.getBr());
+        String query = "insert into register(id, pw, nn, name, em, br) values(?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(query, register.getId(), register.getPw(), register.getNn(), register.getName(), register.getEm(), register.getBr());
     }
 
     public Boolean overlap(Register register) throws Exception {
