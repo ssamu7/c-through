@@ -5,8 +5,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'Map',
   mounted() {
@@ -116,6 +114,7 @@ export default {
             '        </li>' +
             '        <li>' +
             '            <span class="title">' +
+            '            <a href="Menu"/>' +
             '             주문</span>' +
             '        </li>' +
             '    </ul>' +
