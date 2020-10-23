@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <v-app id="inspire">
-      <div>
+      <div>C-Through
+        Hoi
         <v-data-table
             :headers="headers"
             :items="desserts"

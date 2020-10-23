@@ -8,6 +8,7 @@
 
 
 export default {
+  name: 'Map',
   mounted() {
     window.kakao && window.kakao.maps
         ? this.addKakaoMapScript()
@@ -99,7 +100,6 @@ export default {
         //                 '<div style="padding:50px;font-size:12px;">' +
         //                 '<a href="https://www.naver.com" style="color:#ff0000" target="_blank">' +
         //                 place.place_name + '(체크)</div>'
-        let imageCafe = require("@/assets/box_movie.png")
         let content = '<div class ="overlaybox">' +
             '    <div class="boxtitle"></div>' +
             '    <div class="first">' +
@@ -115,7 +115,7 @@ export default {
             '            <span class="title">즐겨찾기</span>' +
             '        </li>' +
             '        <li>' +
-            '            <span class="title">' + '<router-link to="Menu"/>' +
+            '            <span class="title">' +
             '             주문</span>' +
             '        </li>' +
             '    </ul>' +
