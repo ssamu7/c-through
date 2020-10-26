@@ -9,12 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Log
 @RestController
 @RequestMapping("/orderby")
-@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 public class OrderbyController {
 
     @Autowired
@@ -27,8 +28,11 @@ public class OrderbyController {
     }
 
     @PostMapping("/list")
-    public ResponseEntity<List<Orderby>> orderlsit(@Validated @RequestBody String place) throws Exception {
+    public ResponseEntity<List<Orderby>> orderlsit(@Validated @RequestBody HashMap<String, String> values) throws Exception {
+        String place = values.get("place");
+
         log.info("Controller Orderby Order List");
+        log.info(place);
         return new ResponseEntity<>(service.list(place), HttpStatus.OK);
     }
 }

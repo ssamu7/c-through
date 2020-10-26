@@ -20,27 +20,31 @@ public class OrderbyRepository {
 
     public void create(Orderby orderby) throws Exception {
         log.info("Repository Orderby create");
-        String query = "insert into orderby(nickname, order, cafenum, place) values(?, ?, ?, ?)";
+        String query = "insert into orderby(nickname, orders, cafenum, place) values(?, ?, ?, ?)";
         jdbcTemplate.update(query, orderby.getNickname(), orderby.getOrders(), orderby.getCafenum(), orderby.getPlace());
     }
 
     public List<Orderby> list(String place) throws Exception {
-        log.info("Repository Marker list()");
+        log.info("Repository Orderby list()");
+        log.info(place);
+
+        String query = "select nickname, orders, cafenum  from orderby where place = ?";
+
         List<Orderby> results = jdbcTemplate.query(
-                "select nickname, order, cafenum from orderby where place = ?",
+                query,
                 new RowMapper<Orderby>() {
                     @Override
                     public Orderby mapRow(ResultSet rs, int rowNum)
                             throws SQLException {
                         Orderby orderby = new Orderby();
                         orderby.setNickname(rs.getString("nickname"));
-                        orderby.setOrders(rs.getString("order"));
+                        orderby.setOrders(rs.getString("orders"));
                         orderby.setCafenum(rs.getInt("cafenum"));
-
                         return orderby;
                     }
                 }, place
         );
+
         return results;
     }
 }

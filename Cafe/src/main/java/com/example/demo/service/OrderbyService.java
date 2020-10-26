@@ -21,6 +21,8 @@ public class OrderbyService {
     }
 
     public List<Orderby> list (String place) throws Exception {
+        log.info("Service Orederby List");
+        log.info(place);
         return repository.list(place);
     }
 }
