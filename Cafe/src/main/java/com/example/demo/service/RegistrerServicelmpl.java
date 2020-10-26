@@ -21,12 +21,17 @@ public class RegistrerServicelmpl implements RegisterService{
         if(register.getId().length() > 4 && register.getNn().length() > 4
                 && register.getBr() > 99999 && register.getPw().length() > 6
                 && register.getPw().length() < 16
-                && Pattern.matches("\\\\w+@\\\\w+\\\\.\\\\w+(\\\\.\\\\w+)?", register.getEm())
-                && Pattern.matches("", register.getEm())
+                && Pattern.matches("\\w+@\\w+\\.\\w+(\\.\\w+)?", register.getEm())
+                && Pattern.matches("^.*(([a-zA-Z])+).*$",register.getPw())
+                && Pattern.matches("^.*(([1-9])+).*$",register.getPw())
+                && Pattern.matches("^.*(([!@#$%^&*(),.?\":{}|<>])+).*$",register.getPw())
         ) {
             reposirory.create(register);
+            return 1;
         }
-        return 0;
+        else {
+            return 0;
+        }
     }
 
     @Override
