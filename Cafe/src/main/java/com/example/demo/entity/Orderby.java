@@ -13,7 +13,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(of = "orderNo")
 @ToString
 @Entity
-@Table(name = "orders")
+@Table(name = "orderby")
 public class Orderby {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -69,10 +69,16 @@ export default {
       ]
     };
   },
+  props: {
+    place: String
+  },
   methods: {
     eventHandler() {
       console.log('button clicked');
     }
+  },
+  mounted() {
+    console.log("place props : " + this.place)
   }
 };
 </script>
