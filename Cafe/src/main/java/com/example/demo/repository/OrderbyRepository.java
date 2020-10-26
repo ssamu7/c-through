@@ -28,7 +28,7 @@ public class OrderbyRepository {
         log.info("Repository Orderby list()");
         log.info(place);
 
-        String query = "select nickname, orders, cafenum  from orderby where place = ?";
+        String query = "select order_no, nickname, orders, cafenum  from orderby where place = ?";
 
         List<Orderby> results = jdbcTemplate.query(
                 query,
@@ -37,6 +37,7 @@ public class OrderbyRepository {
                     public Orderby mapRow(ResultSet rs, int rowNum)
                             throws SQLException {
                         Orderby orderby = new Orderby();
+                        orderby.setOrderNo(rs.getLong("order_no"));
                         orderby.setNickname(rs.getString("nickname"));
                         orderby.setOrders(rs.getString("orders"));
                         orderby.setCafenum(rs.getInt("cafenum"));
