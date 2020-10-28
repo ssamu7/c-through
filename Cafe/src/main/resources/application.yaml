@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/cthrough?serverTimezone=UTC&useSSL=false
-    username: bitai
+    username: root
     password: 456123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
