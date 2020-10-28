@@ -4,9 +4,9 @@ import com.example.demo.entity.Menu;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.tree.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
