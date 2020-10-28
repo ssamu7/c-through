@@ -84,6 +84,7 @@ export default {
   align-items: center;
   position: absolute;
 }
+
 .vps-theme-settings-hidden {
   right: -280px;
   transition: all 1s;

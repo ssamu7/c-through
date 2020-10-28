@@ -4,7 +4,7 @@
            {{new Date().getFullYear()}},
            <span class="vps-heart-char">&#10084;</span> by
            <i>
-             <router-link to="/">C-through</router-link>
+             <router-link to="/" style="color: white; font-size: 16px">C-through</router-link>
            </i>
          </div>
       </div>

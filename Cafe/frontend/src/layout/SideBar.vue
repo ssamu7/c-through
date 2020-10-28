@@ -28,9 +28,9 @@
     <div class="vps-sidebar-search">
       <slot name="search"></slot>
     </div>
-    <ul class="vps-sidebar-menu">
+    <ul class="vps-sidebar-menu" style="padding: 10px 0;">
       <li class="vps-sidebar-menu-header">
-        <h4>C-through</h4>
+        <h2>C-through</h2>
       </li>
       <li
           v-for="(item,index) in items"
@@ -49,7 +49,7 @@
               width="16px"
           />
           <div class="vps-sidebar-menu-item-content-label">
-            <router-link to="/Menu">
+            <router-link to="/Menu" style="color:white;">
               {{ item.label }}
             </router-link>
           </div>
@@ -89,9 +89,9 @@
 <!--          </div>-->
 <!--        </div>-->
 <!--      </li>-->
-      <ul class="logoutUl">
+      <ul class="logoutUl" style="padding:0px">
         <li class="logoutTF" v-if="TF">
-          <i class="fas fa-sign-in-alt"></i>
+          <i class="fas fa-sign-in-alt" style="font-size: 24px"></i>
         </li>
         <li class="logoutTF" v-if="TF">
           Log Out
@@ -230,4 +230,8 @@ export default {
   font-size: 18px;
 }
 
+li.vps-sidebar-menu-item {
+  color: white !important;
+  font-size: 17px;
+}
 </style>

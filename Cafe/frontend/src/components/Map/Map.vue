@@ -88,7 +88,8 @@ export default {
         //                 '<div style="padding:50px;font-size:12px;">' +
         //                 '<a href="https://www.naver.com" style="color:#ff0000" target="_blank">' +
         //                 place.place_name + '(체크)</div>'
-        let content = '<div class ="overlaybox">' +
+        let content =
+            '<div id="hi" class ="overlaybox">' +
             '    <div class="boxtitle"></div>' +
             '    <div class="first">' +
             '        <div class="placeName text">' + place.place_name + '<br>' +
@@ -145,6 +146,8 @@ export default {
 </script>
 
 <style>
+
+
 .map {
   width: 100vw;
   height: 100vh;
@@ -158,6 +161,7 @@ export default {
   padding: 15px 10px;
   opacity: 85%;
   border-radius: 5px;
+  height: 300px;
 }
 
 .overlaybox li {
@@ -185,28 +189,26 @@ export default {
   bottom: 0;
   background: rgba(0, 0, 0, 0.2);
   padding: 7px 15px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
-.overlaybox ul {
-  width: 247px;
+#hi ul{
+  padding: 0;
+  width: 245px;
 }
-
 .overlaybox li {
-  position: relative;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   background: #2b2d36;
   padding: 5px 10px;
   color: #aaabaf;
+  height: 40px;
   line-height: 1;
 }
 
-.overlaybox li span {
-  display: inline-block;
-}
-
-.overlaybox li .title {
-  font-size: 13px;
+span.title {
+  padding: 0 0;
+  color: #aaabaf;
+  font-size: 15px;
 }
 
 .overlaybox li:hover {
