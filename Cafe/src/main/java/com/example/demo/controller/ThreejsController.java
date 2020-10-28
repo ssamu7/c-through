@@ -5,14 +5,16 @@ import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 @Log
 @Controller
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 public class ThreejsController {
     static final Logger log = LoggerFactory.getLogger(ThreejsController.class);
 
@@ -33,13 +35,14 @@ public class ThreejsController {
 
         return "lidar";
     }
-    @ResponseBody
+
     @GetMapping("/lidartest")
     public HashMap<String, ArrayList> lidartest() throws InterruptedException {
         log.info("lidartest");
 
         // JVM Stack Frame의 한계로 일정 범위 이상은 Stack이 박살나는 현상을 초래함
         // 좀 더 크게 잡아야 한 번에 데이터를 많이 땡겨올 수 있는데 반복적으로 JNI API를 호출시켜야함
+
         boolean TF = false;
         float test1 = 0;
         float test2 = 0;
@@ -78,17 +81,5 @@ public class ThreejsController {
         arr.put("key_angle", arr_angle);
         arr.put("key_dist", arr_dist);
         return arr;
-//        TF = false;
-//
-//
-//        float[][] len = new float[dist.length][2];
-//        //Thread.sleep(1000);
-//        for (int i = 0; i < dist.length; i++) {
-//            log.info("dist = " + dist[i] + ", angle = " + angle[i]);
-//            len[i][0] = dist[i];
-//            len[i][1] = angle[i];
-//        }
-//        log.info("dist = " + dist[0] + ", angle = " + angle[0]);
-//        return len;
     }
 }

@@ -6,7 +6,7 @@
 
 <script>
 import router from '../../routes'
-
+import axios from 'axios'
 export default {
   name: 'Map',
   mounted() {
@@ -46,7 +46,6 @@ export default {
       ps.keywordSearch('종각 비트캠프', placesSearchCB);
       ps.keywordSearch('종로2가 카페', placesSearchCB);
       ps.keywordSearch('종각역 카페', placesSearchCB);
-
       // 키워드 검색 완료 시 호출되는 콜백함수 입니다
       function placesSearchCB(data, status, pagination) {
         if (status === kakao.maps.services.Status.OK) {
@@ -63,7 +62,6 @@ export default {
           map.setBounds(bounds);
         }
       }
-
       function displayMarker(place, a) {
         // 마커를 생성하고 지도에 표시합니다
         let imageSrc = ''
@@ -96,7 +94,7 @@ export default {
             '        </div>' +
             '    </div>' +
             '    <ul>' +
-            '        <a id = "txt2">' +
+            '        <a id = "showPeople">' +
             '           <li>' +
             '            <span class="title">혼잡도</span>' +
             '           </li>' +
@@ -120,9 +118,21 @@ export default {
               // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
               infowindow.setContent(content);
               infowindow.open(map, marker)
-              let btn = document.getElementById("showMenu");
-              btn.onclick = function () {
+              let btn1 = document.getElementById("showMenu");
+              let btn2 = document.getElementById("showPeople");
+              btn1.onclick = function () {
                 router.push({name: 'Menu', params: {'place': place.place_name}});
+              }
+              btn2.onclick = function () {
+                console.log("a")
+                const a = place.place_name
+                axios.get('http://localhost:1234/opencv', {a})
+                    .then(res => {
+                      window.open('http://localhost:1234/opencv')
+                    })
+                    .catch(err => {
+                      alert(err.response.data)
+                    })
               }
             });
       }
@@ -136,7 +146,6 @@ export default {
   width: 100vw;
   height: 100vh;
 }
-
 .overlaybox {
   position: relative;
   width: auto;
@@ -146,11 +155,9 @@ export default {
   opacity: 85%;
   border-radius: 5px;
 }
-
 .overlaybox li {
   list-style: none;
 }
-
 /* css main image*/
 .overlaybox .first {
   position: relative;
@@ -160,12 +167,10 @@ export default {
   background-size: 247px 136px;
   margin-bottom: 8px;
 }
-
 .first .text {
   color: white;
   font-weight: bold;
 }
-
 .first .placeName {
   position: absolute;
   width: 100%;
@@ -174,11 +179,9 @@ export default {
   padding: 7px 15px;
   font-size: 14px;
 }
-
 .overlaybox ul {
   width: 247px;
 }
-
 .overlaybox li {
   position: relative;
   margin-bottom: 2px;
@@ -187,15 +190,12 @@ export default {
   color: #aaabaf;
   line-height: 1;
 }
-
 .overlaybox li span {
   display: inline-block;
 }
-
 .overlaybox li .title {
   font-size: 13px;
 }
-
 .overlaybox li:hover {
   color: #fff;
   background: #d24545;

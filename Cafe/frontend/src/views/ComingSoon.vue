@@ -18,9 +18,8 @@
 
 <script>
 import axios from 'axios'
-
 export default {
-name:'coming-soon',
+  name:'coming-soon',
   data () {
     return {
       search: '',
@@ -65,13 +64,12 @@ name:'coming-soon',
     this.sleep(1000)
     const place = this.places
     axios.post('http://localhost:1234/orderby/list', {place})
-      .then(res => {
-        this.orderlist = res.data
-      })
+        .then(res => {
+          this.orderlist = res.data
+        })
   }
 }
 </script>
 
 <style>
-
 </style>
