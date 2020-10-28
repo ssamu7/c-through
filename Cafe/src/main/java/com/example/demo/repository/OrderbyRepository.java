@@ -20,8 +20,8 @@ public class OrderbyRepository {
 
     public void create(Orderby orderby) throws Exception {
         log.info("Repository Orderby create");
-        String query = "insert into orderby(nickname, orders, cafenum, place) values(?, ?, ?, ?)";
-        jdbcTemplate.update(query, orderby.getNickname(), orderby.getOrders(), orderby.getCafenum(), orderby.getPlace());
+        String query = "insert into orderby(order_no,nickname, orders, cafenum, place) values(?, ?, ?, ?, ?)";
+        jdbcTemplate.update(query, orderby.getOrderNo(), orderby.getNickname(), orderby.getOrders(), orderby.getCafenum(), orderby.getPlace());
     }
 
     public List<Orderby> list(String place) throws Exception {
