@@ -30,7 +30,7 @@
     </div>
     <ul class="vps-sidebar-menu">
       <li class="vps-sidebar-menu-header">
-        <h4>General</h4>
+        <h4>C-through</h4>
       </li>
       <li
           v-for="(item,index) in items"
@@ -53,9 +53,9 @@
               {{ item.label }}
             </router-link>
           </div>
-          <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
-            <badge :color="item.details.color" :text="item.details.text"/>
-          </div>
+<!--          <div v-if="item.details" class="vps-sidebar-menu-item-content-details">-->
+<!--            <badge :color="item.details.color" :text="item.details.text"/>-->
+<!--          </div>-->
           <icon
               name="ArrowRight"
               class="vps-sidebar-arrow"
@@ -64,34 +64,39 @@
               :class="{'vps-sidebar-rotate-arrow':expandedIndex===index}"
           />
         </div>
-        <ul class="vps-sidebar-sub-menu expand" v-expand="index===expandedIndex">
-          <li v-for="(child,i) in item.children" :key="i" class="vps-sidebar-sub-menu-item">
-            <div class="vps-sidebar-sub-menu-item-label">
-              <router-link :to="child.to?child.to:'/coming-soon'">{{ item.label }}</router-link>
-            </div>
-          </li>
-        </ul>
+<!--        <ul class="vps-sidebar-sub-menu expand" v-expand="index===expandedIndex">-->
+<!--          <li v-for="(child,i) in item.children" :key="i" class="vps-sidebar-sub-menu-item">-->
+<!--            <div class="vps-sidebar-sub-menu-item-label">-->
+<!--              <router-link :to="child.to?child.to:'/coming-soon'">{{ item.label }}</router-link>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--        </ul>-->
       </li>
-      <li class="vps-sidebar-menu-header">
-        <h4>Extra</h4>
-      </li>
-      <li v-for="(item, index) in extraItems" :key="item.label" class="vps-sidebar-menu-item">
-        <div class="vps-sidebar-menu-item-content">
-          <icon
-              class="vps-sidebar-menu-item-content-icon"
-              :name="item.icon?item.icon:'Addon'"
-              height="16px"
-              width="16px"
-          />
-          <div class="vps-sidebar-menu-item-content-label">{{ item.label }}</div>
-          <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
-            <badge :color="item.details.color" :text="item.details.text"/>
-          </div>
-        </div>
-      </li>
-      <li class="logoutTF" v-if="TF">
-        <i class="fas fa-sign-in-alt">&nbsp; Log Out</i>
-      </li>
+<!--      <li class="vps-sidebar-menu-header">-->
+<!--        <h4>Extra</h4>-->
+<!--      </li>-->
+<!--      <li v-for="(item, index) in extraItems" :key="item.label" class="vps-sidebar-menu-item">-->
+<!--        <div class="vps-sidebar-menu-item-content">-->
+<!--          <icon-->
+<!--              class="vps-sidebar-menu-item-content-icon"-->
+<!--              :name="item.icon?item.icon:'Addon'"-->
+<!--              height="16px"-->
+<!--              width="16px"-->
+<!--          />-->
+<!--          <div class="vps-sidebar-menu-item-content-label">{{ item.label }}</div>-->
+<!--          <div v-if="item.details" class="vps-sidebar-menu-item-content-details">-->
+<!--            <badge :color="item.details.color" :text="item.details.text"/>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </li>-->
+      <ul class="logoutUl">
+        <li class="logoutTF" v-if="TF">
+          <i class="fas fa-sign-in-alt"></i>
+        </li>
+        <li class="logoutTF" v-if="TF">
+          Log Out
+        </li>
+      </ul>
     </ul>
 
   </aside>
@@ -111,80 +116,34 @@ export default {
       TF: true,
       items: [
         {
-          label: "Dashboard",
-          icon: "dashboard",
-          details: {
-            text: "New",
-            color: "#FFFF11"
-          }
-        },
-        {
-          label: "Ecommerce",
+          label: "Menu",
           icon: "super-market",
-          details: {
-            text: "3",
-            color: "#FF4444"
-          },
-          children: [
-            {
-              label: "Products"
-            },
-            {
-              label: "Credit card "
-            },
-            {
-              label: "Orders "
-            }
-          ]
         },
         {
-          label: "Components",
+          label: "Favorites",
           icon: "addon",
-          children: [
-            {
-              label: "Button"
-            },
-            {
-              label: "Table"
-            },
-            {
-              label: "Card"
-            },
-            {
-              label: "Alert"
-            }
-          ]
         },
-        {
-          label: "Charts",
-          icon: "line-chart",
-          children: [
-            {
-              label: "Line chart"
-            },
-            {
-              label: "Pie chart"
-            },
-            {
-              label: "Histogram"
-            },
-            {
-              label: "Bar chart"
-            }
-          ]
-        },
-        {
-          label: "Maps",
-          icon: "place",
-          children: [
-            {
-              label: "Google Maps"
-            },
-            {
-              label: "Open street Map"
-            }
-          ]
-        }
+        // {
+        //   label: "Sign Out",
+        //   icon: "Logout",
+        //   TF: true
+        // }
+        // {
+        //   label: "Charts",
+        //   icon: "line-chart",
+        // },
+        // {
+        //   label: "Maps",
+        //   icon: "place",
+        //   children: [
+        //     {
+        //       label: "Google Maps"
+        //     },
+        //     {
+        //       label: "Open street Map"
+        //     }
+        //   ]
+        // }
       ],
       extraItems: [
         {
@@ -262,6 +221,12 @@ export default {
   display: flex;
   justify-content: flex-end;
   padding-right: 12px;
+  font-size: 18px;
+}
+.logoutUl {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   font-size: 18px;
 }
 

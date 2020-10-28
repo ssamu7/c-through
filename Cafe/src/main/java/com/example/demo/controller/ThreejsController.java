@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Log
 @Controller
-@CrossOrigin(origins = "http://localhost:3080", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 public class ThreejsController {
     static final Logger log = LoggerFactory.getLogger(ThreejsController.class);
 
@@ -46,5 +46,12 @@ public class ThreejsController {
         }
 
         return "lidar";
+    }
+
+    @GetMapping("/opencv")
+    public String opencv() throws InterruptedException {
+
+
+        return "opencv";
     }
 }

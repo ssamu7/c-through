@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import router from '../../routes'
+import axios from 'axios'
 export default {
   name: 'Map',
   mounted() {
@@ -25,7 +27,6 @@ export default {
       let infowindow = new kakao
           .maps
           .InfoWindow({zIndex: 1});
-
       let mapContainer = document.getElementById("map");
       let options = {
         center: new kakao
@@ -37,13 +38,11 @@ export default {
       let map = new kakao
           .maps
           .Map(mapContainer, options);
-
       //장소 검색 객체를 생성합니다.
       let ps = new kakao
           .maps
           .services
           .Places();
-
       ps.keywordSearch('종각 비트캠프', placesSearchCB);
       ps.keywordSearch('종로2가 카페', placesSearchCB);
       ps.keywordSearch('종각역 카페', placesSearchCB);
@@ -51,18 +50,15 @@ export default {
       // 키워드 검색 완료 시 호출되는 콜백함수 입니다
       function placesSearchCB(data, status, pagination) {
         if (status === kakao.maps.services.Status.OK) {
-
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해 LatLngBounds 객체에 좌표를 추가합니다
           let bounds = new kakao
               .maps
               .LatLngBounds();
-
           for (let i = 0; i < data.length; i++) {
             let a = Math.random() * 10 + 1
             displayMarker(data[i], a);
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
           }
-
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
           map.setBounds(bounds);
         }
@@ -80,19 +76,13 @@ export default {
         }
         console.log(a)
         let imageSize = new kakao.maps.Size(65, 65)
-
-
         let markerPositon = new kakao.maps.LatLng(place.y, place.x),
             markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
-
         let marker = new kakao.maps.Marker({
           image: markerImage,
           position: markerPositon
         });
-
         marker.setMap(map);
-
-
         // 인포윈도우를 생성하고 지도에 표시합니다
         // let content = '<div sytle="font-size:12px;">hi</div>' +
         //                 '<div style="padding:50px;font-size:12px;">' +
@@ -106,20 +96,23 @@ export default {
             '        </div>' +
             '    </div>' +
             '    <ul>' +
-            '        <li>' +
-            '            <span class="title">혼잡도' + '</span>' +
-            '        </li>' +
-            '        <li>' +
-            '            <span class="title">즐겨찾기</span>' +
-            '        </li>' +
-            '        <li>' +
-            '            <span class="title">' +
-            '            <a href="Menu"/>' +
-            '             주문</span>' +
-            '        </li>' +
+            '        <a id = "showPeople">' +
+            '           <li>' +
+            '            <span class="title">혼잡도</span>' +
+            '           </li>' +
+            '        </a>' +
+            '        <a id = "txt2">' +
+            '           <li>' +
+            '               <span class="title">즐겨찾기</span>' +
+            '           </li>' +
+            '        </a>' +
+            '        <a id = "showMenu">' +
+            '           <li>' +
+            '               <span class="title">주문</span>' +
+            '           </li>' +
+            '        </a>' +
             '    </ul>' +
             '</div>'
-
         kakao
             .maps
             .event
@@ -127,6 +120,23 @@ export default {
               // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
               infowindow.setContent(content);
               infowindow.open(map, marker)
+              let btn1 = document.getElementById("showMenu");
+              let btn2 = document.getElementById("showPeople");
+              btn1.onclick = function () {
+                router.push({name: 'Menu', params: {'place': place.place_name}});
+              }
+              btn2.onclick = function () {
+                console.log("a")
+                const a = place.place_name
+                axios.get('http://localhost:1234/opencv', {a})
+                    .then(res => {
+                      window.open('http://localhost:1234/opencv')
+
+                    })
+                    .catch(err => {
+                      alert(err.response.data)
+                    })
+              }
             });
       }
     }
@@ -203,5 +213,4 @@ export default {
   color: #fff;
   background: #d24545;
 }
-
 </style>

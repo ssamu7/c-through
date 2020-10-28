@@ -41,7 +41,12 @@ export default new Router({
         {
             path: '/Menu',
             name: 'Menu',
-            component: Menu,
+            components: {
+                default: Menu
+            },
+            props: {
+                default: true
+            }
         },
         {
             path: '/',

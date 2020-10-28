@@ -18,12 +18,15 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
 name:'coming-soon',
   data () {
     return {
       search: '',
       calories: '',
+      orderlist: [],
       desserts: [
         {
           name: 'Frozen Yogurt',
@@ -140,6 +143,17 @@ name:'coming-soon',
           typeof value === 'string' &&
           value.toString().toLocaleUpperCase().indexOf(search) !== -1
     },
+  },
+  mounted() {
+    const place = this.places
+    axios.post('http://localhost:1234/orderby/list', {place})
+      .then(res => {
+        this.orderlist = res.data
+        console.log(res.data[0])
+        console.log(res.data[0].nickname)
+        console.log(res.data.orders)
+        console.log(res.data.cafenum)
+      })
   }
 }
 </script>
