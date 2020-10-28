@@ -33,6 +33,7 @@ public class ThreejsController {
 
         return "lidar";
     }
+
     @ResponseBody
     @GetMapping("/lidartest")
     public HashMap<String, ArrayList> lidartest() throws InterruptedException {
