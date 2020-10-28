@@ -7,7 +7,6 @@
 
 <script>
 import CardGrid from "@/components/Card/CardGrid";
-
 export default {
   name: "Menu",
   components: {
@@ -91,7 +90,6 @@ export default {
   font-weight: 700;
   padding: 30px 0;
 }
-
 @media only screen and (max-width: 768px) {
   .title {
     font-size: 10vw;
