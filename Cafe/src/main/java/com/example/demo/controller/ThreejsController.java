@@ -2,13 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.nativeinterface.array.ArrayReturnTest;
 import lombok.extern.java.Log;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,15 +12,15 @@ import java.util.HashMap;
 @Controller
 @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 public class ThreejsController {
-    static final Logger log = LoggerFactory.getLogger(ThreejsController.class);
-
     float[] dist = new float[1024];
     float[] angle = new float[1024];
     ArrayList<Float> arr_angl_B = new ArrayList<Float>();
     ArrayList<Float> arr_dist_B = new ArrayList<Float>();
-    @PostMapping("/three")
-    public int[][] threeNum() throws Exception {
-        return null;
+
+    @GetMapping("/opencv/{place2}")
+    public String opencv(@PathVariable String place2) throws Exception {
+        log.info(place2);
+        return "opencv";
     }
 
     @GetMapping("/setlidartest")
