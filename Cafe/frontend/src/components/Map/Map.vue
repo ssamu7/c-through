@@ -80,6 +80,7 @@ export default {
           image: markerImage,
           position: markerPositon
         });
+        const place2 = place.place_name
         marker.setMap(map);
         // 인포윈도우를 생성하고 지도에 표시합니다
         // let content = '<div sytle="font-size:12px;">hi</div>' +
@@ -124,11 +125,9 @@ export default {
                 router.push({name: 'Menu', params: {'place': place.place_name}});
               }
               btn2.onclick = function () {
-                console.log("a")
-                const a = place.place_name
-                axios.get('http://localhost:1234/opencv', {a})
+                axios.get(`http://localhost:1234/opencv/` + place2)
                     .then(res => {
-                      window.open('http://localhost:1234/opencv')
+                      window.open('http://localhost:63342/c-through/demo.main/templates/opencv.html?_ijt=so2d8jm0miolb0827hr3ckoeq0')
                     })
                     .catch(err => {
                       alert(err.response.data)
