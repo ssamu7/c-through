@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 @Log
 @Controller
-@CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ThreejsController {
     float[] dist = new float[1024];
     float[] angle = new float[1024];
@@ -19,8 +19,14 @@ public class ThreejsController {
 
     @GetMapping("/opencv/{place2}")
     public String opencv(@PathVariable String place2) throws Exception {
-        log.info(place2);
+        log.info("place :" + place2);
         return "opencv";
+    }
+
+    @GetMapping("/testurl")
+    public String testurl() throws Exception {
+        log.info("testurl");
+        return "lidar";
     }
 
     @GetMapping("/setlidartest")
