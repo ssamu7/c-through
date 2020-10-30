@@ -5,4 +5,4 @@
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=silenc3502&layout=compact)](https://github.com/embedded-bitai/c-through)
 
-[![Profile Languages](http://ionicabizau.github.io/github-profile-languages/?user=silenc3502)](https://github.com/embedded-bitai/c-through)
+[![Profile Languages](http://ionicabizau.github.io/github-profile-languages/?username=silenc3502)](https://github.com/embedded-bitai/c-through)
