@@ -3,7 +3,6 @@
     <div id="map" class="map"></div>
   </div>
 </template>
-
 <script>
 import router from '../../routes'
 import axios from 'axios'
@@ -125,13 +124,7 @@ export default {
                 router.push({name: 'Menu', params: {'place': place.place_name}});
               }
               btn2.onclick = function () {
-                axios.get(`http://localhost:1234/opencv/` + place2)
-                    .then(res => {
-                      window.open('http://localhost:63342/c-through/demo.main/templates/opencv.html?_ijt=so2d8jm0miolb0827hr3ckoeq0')
-                    })
-                    .catch(err => {
-                      alert(err.response.data)
-                    })
+                window.open('http://localhost:1234/opencv/'+place2)
               }
             });
       }
@@ -139,7 +132,6 @@ export default {
   }
 };
 </script>
-
 <style>
 .map {
   width: 100vw;
