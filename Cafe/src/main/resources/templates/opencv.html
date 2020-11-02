@@ -10,6 +10,10 @@
     <div><canvas width="920px" height="750px" id="c"></canvas></div>
 </section>
 <body>
+    <div id="numberz">
+        <input type="number" id="z">
+        <button id="okbtn">확인</button>
+    </div>
 </body>
 </html>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -31,6 +35,7 @@
     let rs_dist = new Array();
     let geometry;
     let material;
+    let long = 1;
     //  한변의 길이
     const radius = 0.2;
     //  segments 각형( 최소 3각형)
@@ -49,6 +54,11 @@
     scene.background = new THREE.Color( 0x000000);
     //  실행하기
     setInterval(recy,1000)
+    let zMover = document.getElementById("okbtn")
+    zMover.onclick = function () {
+        console.log(document.getElementById("z").value);
+        long = document.getElementById("z").value;
+    }
     //  점 찍기
     function recy () {
         axios.get('http://localhost:1234/lidartest').then(res => {
@@ -100,7 +110,7 @@
         right: 50%;
     }
     section > div:nth-child(3){
-        top: 0%;
+        top: 10%;
         left: 50%;
         bottom: 0%;
         right: 0%;
@@ -112,5 +122,9 @@
     body {
         margin: 0;
         display: flex;
+    }
+    #numberz {
+        margin-left: 80%;
+        margin-top: 30px;
     }
 </style>
