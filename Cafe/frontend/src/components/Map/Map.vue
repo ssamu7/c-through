@@ -123,7 +123,7 @@ export default {
               btn1.onclick = function () {
                 router.push({name: 'Menu', params: {'place': place.place_name}});
               }
-              btn2.onclick  function () {
+              btn2.onclick = function () {
                 window.open('http://localhost:1234/opencv/'+place2)
               }
             });

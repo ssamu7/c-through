@@ -5,13 +5,15 @@
     <title>Title</title>
 </head>
 <section>
-    <div><iframe width="920px" height="500px"src = "http://localhost:5000/"> OPENCV </iframe></div>
-    <div><iframe width="920px" height="500px" src = "http://localhost:4455/"> OPENCV </iframe></div>
-    <div><canvas width="920px" height="750px" id="threeJS"></canvas></div>
+    <div><iframe width="920px" height="500px"src = "http://0.0.0.0:5000/"> OPENCV </iframe></div>
+    <div><iframe width="920px" height="500px" src = "http://0.0.0.0:4455/"> OPENCV </iframe></div>
+    <div><canvas width="920px" height="750px" id="c"></canvas></div>
 </section>
 <body>
-<input type="text" id="z"/>
-<input type="button" id="okbtn" value="확인"/>
+    <div id="numberz">
+        <input type="number" id="z">
+        <button id="okbtn">확인</button>
+    </div>
 </body>
 </html>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -19,7 +21,7 @@
     //  three.js 위치 import 하기
     import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/build/three.module.js';
     //  그려줄 위치 설정하기
-    const canvas = document.querySelector('#threeJS');
+    const canvas = document.querySelector('#c');
     const renderer = new THREE.WebGLRenderer({canvas});
     const fov = 536;
     const aspect = 2;  // the canvas default
@@ -33,7 +35,7 @@
     let rs_dist = new Array();
     let geometry;
     let material;
-    let long =1;
+    let long = 1;
 
     //  한변의 길이
     const radius = 0.2;
@@ -46,7 +48,8 @@
     //  카메라 보이는 크기 설정하기
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     //  카메라 위치 설정하기
-    camera.position.z = long
+    camera.position.z = 1
+
     //  좌표계 설정
     const scene = new THREE.Scene();
     //  배경색 설정
@@ -123,9 +126,8 @@
         display: flex;
     }
 
-    #z {
-        display: flex;
+    #numberz {
         margin-left: 80%;
+        margin-top: 30px;
     }
-
 </style>
