@@ -1,5 +1,5 @@
 <template>
-  <div class="vps-main-content">
+  <div class="vps-main-content" id="testpadding">
       <vps-drawer>
       </vps-drawer>
     <div class="vps-main">
@@ -79,6 +79,10 @@ export default {
 </script>
 
 <style>
+#testpadding {
+  padding: 0;
+}
+
 .vps-theme-settings {
   display: flex;
   align-items: center;
