@@ -5,19 +5,17 @@ import router from './routes';
 import store from './store';
 
 
-import Vuetify from 'vuetify';
+import vuetify from './plugins/vuetify';
 import CardGrid from "@/components/Card/CardGrid";
-import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(VueComp)
 Vue.use(CardGrid);
-Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
-  vuetify:new Vuetify(),
+  vuetify,
   render: h => h(App)
 }).$mount('#app')

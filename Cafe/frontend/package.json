@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@vue/composition-api": "^0.3.4",
+    "axios": "^0.20.0",
     "core-js": "^3.6.4",
     "gsap": "^3.2.6",
     "velocity-animate": "^1.5.2",
@@ -20,7 +21,6 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",
     "@vue/cli-service": "^4.2.0",
-    "node-cmake": "^2.5.1",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"

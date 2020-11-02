@@ -3,7 +3,6 @@
     <div id="map" class="map"></div>
   </div>
 </template>
-
 <script>
 import router from '../../routes'
 import axios from 'axios'
@@ -46,7 +45,6 @@ export default {
       ps.keywordSearch('종각 비트캠프', placesSearchCB);
       ps.keywordSearch('종로2가 카페', placesSearchCB);
       ps.keywordSearch('종각역 카페', placesSearchCB);
-
       // 키워드 검색 완료 시 호출되는 콜백함수 입니다
       function placesSearchCB(data, status, pagination) {
         if (status === kakao.maps.services.Status.OK) {
@@ -63,7 +61,6 @@ export default {
           map.setBounds(bounds);
         }
       }
-
       function displayMarker(place, a) {
         // 마커를 생성하고 지도에 표시합니다
         let imageSrc = ''
@@ -82,14 +79,14 @@ export default {
           image: markerImage,
           position: markerPositon
         });
+        const place2 = place.place_name
         marker.setMap(map);
         // 인포윈도우를 생성하고 지도에 표시합니다
         // let content = '<div sytle="font-size:12px;">hi</div>' +
         //                 '<div style="padding:50px;font-size:12px;">' +
         //                 '<a href="https://www.naver.com" style="color:#ff0000" target="_blank">' +
         //                 place.place_name + '(체크)</div>'
-        let content =
-            '<div id="hi" class ="overlaybox">' +
+        let content = '<div class ="overlaybox">' +
             '    <div class="boxtitle"></div>' +
             '    <div class="first">' +
             '        <div class="placeName text">' + place.place_name + '<br>' +
@@ -126,17 +123,8 @@ export default {
               btn1.onclick = function () {
                 router.push({name: 'Menu', params: {'place': place.place_name}});
               }
-              btn2.onclick = function () {
-                console.log("a")
-                const a = place.place_name
-                axios.get('http://localhost:1234/opencv', {a})
-                    .then(res => {
-                      window.open('http://localhost:1234/opencv')
-
-                    })
-                    .catch(err => {
-                      alert(err.response.data)
-                    })
+              btn2.onclick  function () {
+                window.open('http://localhost:1234/opencv/'+place2)
               }
             });
       }
@@ -144,15 +132,11 @@ export default {
   }
 };
 </script>
-
 <style>
-
-
 .map {
   width: 100vw;
   height: 100vh;
 }
-
 .overlaybox {
   position: relative;
   width: auto;
@@ -161,13 +145,10 @@ export default {
   padding: 15px 10px;
   opacity: 85%;
   border-radius: 5px;
-  height: 300px;
 }
-
 .overlaybox li {
   list-style: none;
 }
-
 /* css main image*/
 .overlaybox .first {
   position: relative;
@@ -177,40 +158,35 @@ export default {
   background-size: 247px 136px;
   margin-bottom: 8px;
 }
-
 .first .text {
   color: white;
   font-weight: bold;
 }
-
 .first .placeName {
   position: absolute;
   width: 100%;
   bottom: 0;
   background: rgba(0, 0, 0, 0.2);
   padding: 7px 15px;
-  font-size: 15px;
+  font-size: 14px;
 }
-
-#hi ul{
-  padding: 0;
-  width: 245px;
+.overlaybox ul {
+  width: 247px;
 }
 .overlaybox li {
-  margin-bottom: 3px;
+  position: relative;
+  margin-bottom: 2px;
   background: #2b2d36;
   padding: 5px 10px;
   color: #aaabaf;
-  height: 40px;
   line-height: 1;
 }
-
-span.title {
-  padding: 0 0;
-  color: #aaabaf;
-  font-size: 15px;
+.overlaybox li span {
+  display: inline-block;
 }
-
+.overlaybox li .title {
+  font-size: 13px;
+}
 .overlaybox li:hover {
   color: #fff;
   background: #d24545;
