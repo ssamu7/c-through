@@ -22,14 +22,14 @@
     </div>
     <div v-else id="loginTF" class="loginTF">
       <router-link to="/login">
-        <i class="fas fa-sign-in-alt">&nbsp; Sign In</i>
+        <i class="fas fa-sign-in-alt">&nbsp;Sign In</i>
       </router-link>
     </div>
     <div class="vps-sidebar-search">
       <slot name="search"></slot>
     </div>
     <ul class="vps-sidebar-menu">
-      <li class="vps-sidebar-menu-header">
+      <li class="vps-sidebar-menu-header" >
         <h4>C-through</h4>
       </li>
       <li
@@ -187,6 +187,9 @@ export default {
 };
 </script>
 <style>
+
+
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 1s;
@@ -223,4 +226,5 @@ export default {
   justify-content: center;
   font-size: 18px;
 }
+
 </style>

@@ -12,16 +12,15 @@
             <p class="m-0" v-for="(detail, key) in event.details" :key="key">{{ key }}: {{ detail }}</p>
           </div>
         </transition>
-        <p class="date">
-          {{ event.date.split(',')[0] }}
+        <p class="price">
+          {{ event.price.split(',')[0] }}
         </p>
       </div>
-      <transition name="slide-left" tag="div">
-        <div class="info" v-if="full">
+      <transition name="slide-left" tag="div" >
+        <div class="infoTwo" v-if="full">
           <div class="text">
-            <h2>Description</h2>
-            <p>{{ event.description }}</p>
-            <span v-if="event.html" v-html="event.html"></span>
+            <h2>Description</h2> <br/>
+            <p>{{event.description}}</p>
           </div>
           <div class="poster">
             <img :src="getImgUrl(event.innerImage)" :alt="event.name" class="w-100">
@@ -95,6 +94,7 @@ export default {
   transition: all 500ms ease-out;
   z-index: 1;
 }
+
 .card:hover {
   transform: scale(1.02);
   box-shadow: 0 10px 50px rgba(120, 120, 120, 0.4);
@@ -108,7 +108,7 @@ export default {
 .card:hover .title::after {
   bottom: -15px;
 }
-.card:hover .date {
+.card:hover .price {
   font-size: 1.6em;
   opacity: 1;
 }
@@ -165,7 +165,7 @@ export default {
   margin: 20px 0;
   font-size: 1em;
 }
-.date {
+.price {
   font-size: 1.2em;
   color: yellow;
   transition: font-size 200ms ease-out;
@@ -234,25 +234,27 @@ export default {
 .card.full .date {
   font-size: 1.6em;
 }
-.info {
+.infoTwo {
   display: flex;
   color: white;
+  opacity: 100%;
 }
 .text {
   order: 2;
   width: 50vw;
 }
 .poster {
-  width: 40vw;
   height: fit-content;
-  border: 1px solid white;
+  border: 3px;
   margin-top: -20vh;
   margin-left: auto;
-  margin-right: 30px;
+  margin-right: 60px;
   order: 3;
 }
 .poster img {
-  width: 100%;
+  width: 500px;
+  height: 500px;
+  margin-top: 20px;
 }
 .btn {
   color: white;
@@ -290,8 +292,10 @@ export default {
   .card {
     width: 80vw;
   }
-  .info {
+  .infoTwo {
     flex-direction: column;
+    width: auto;
+    height: 400px;
   }
   .poster {
     margin: 0 auto;
